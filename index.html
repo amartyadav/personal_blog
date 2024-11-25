@@ -17,6 +17,8 @@
             margin: 0;
             padding: 40px;
             line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         a {
@@ -25,20 +27,13 @@
         }
         
         a:visited {
-            color: #ff0000;
+            color: #990000;
         }
         
-        .header-container {
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: start;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .main-content {
-            flex: 1;
-            padding-right: 40px;
         }
         
         .photo {
@@ -47,88 +42,67 @@
         }
         
         h1 {
-            text-align: center;
             margin-bottom: 10px;
         }
         
         h2 {
             color: rgb(153, 0, 0);
-            text-align: center;
-        }
-        
-        h3 {
-            color: rgb(153, 153, 153);
-            margin-top: 30px;
-        }
-        
-        .center-text {
-            text-align: center;
-        }
-        
-        hr {
-            width: 100%;
-            height: 2px;
-            background-color: #ccc;
-            border: none;
-            margin: 30px 0;
-        }
-        
-        ul {
-            padding-left: 20px;
         }
         
         .nav-links {
-            text-align: center;
             margin: 20px 0;
         }
         
         .nav-links a {
-            margin: 0 10px;
+            margin-right: 20px;
+        }
+
+        hr {
+            height: 1px;
+            background-color: #ccc;
+            border: none;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-    <div class="header-container">
-        <div class="main-content">
+    <div class="header">
+        <div>
             <h1>Amartya Yadav</h1>
-            <div class="center-text">
+            <p>
                 MSc Student in High Performance Computing<br>
                 <a href="https://www.epcc.ed.ac.uk">EPCC, University of Edinburgh</a><br>
-                <b>your-email@ed.ac.uk</b>
-            </div>
+                <b>aatmamartya[at]proton[dot]me</b>
+            </p>
             
-            <h2>Software Development & High Performance Computing</h2>
+            <h3>Software Development & High Performance Computing</h3>
             
             <div class="nav-links">
-                <a href="/">Home</a>
-                •
-                <a href="/projects">Projects</a>
-                •
-                <a href="/updates">Life Feed</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="updates.html">Updates</a>
             </div>
         </div>
         
-        <!-- Add your photo here -->
-        <img src="your-photo.jpg" alt="Amartya Yadav" class="photo">
+        <img src="/media/dp.jpg" alt="Amartya Yadav" class="photo">
     </div>
+    <hr>
+
+    <p>Hi! I'm Amartya. I'm a software developer currently pursuing my MSc in High Performance Computing at EPCC, University of Edinburgh.
+        I specialize in backend development, mobile applications, parallel and scientific computing.</p>
+
+    <p>I'm passionate about applied mathematics, high-performance computing, open-source software, socio-political issues, and the intersection of technology and society.
+        When I'm not coding, you'll find me trekking mountains, reading political and social science literature, or working out.</p>
+
+    <h3>Published Apps</h3>
+    <ul>
+        <li>Quick Panchang - Hindu Calendar and Festivals<a href="https://apps.apple.com/gb/app/quickpanchang-hindu-calendar/id6475807190?mt=12">Get it on the Mac App Store</a></li>
+        <li>Mandi Mitra - Sabzi Mandi Price Calculator<a href="/openstore.html">Get it on Google Play Store or Apple App Store [click the link on your phone]</a></li>
+    </ul>
 
     <hr>
 
-    <h3>About Me</h3>
-    <p>I'm a software developer and MSc student in High Performance Computing at EPCC, University of Edinburgh. I hold a B.Sc. (Hons.) in Computer Science from Robert Gordon University, Aberdeen. My technical background includes backend development, mobile app development, and macOS app development.</p>
-
-    <h3>Projects & Experience</h3>
-    <ul>
-        <li>Developed and published <b>Mandi Mitra</b> (Android and iOS) and <b>QuickPanchang</b> (macOS)</li>
-        <li>Created <b>QuickPanchang API</b>, <b>Proxy Server</b>, and various development tools</li>
-        <li>Worked at <b>Fennex Ltd</b>, developing backend systems, front-end interfaces, and mobile apps</li>
-        <li>Freelance developer for hospitals in Gorakhpur, India</li>
-    </ul>
-
-    <h3>Interests & Skills</h3>
-    <p>Beyond technology, I have a deep interest in politics, economics, and social sciences. I write Urdu and Hindi poetry and am fluent in Hindi, Urdu, English, Bhojpuri, and currently learning French. I'm passionate about trekking, having completed routes across Scottish Munros and Himalayan passes, as well as photography and playing guitar.</p>
-
-    <h3>Contact</h3>
-    <p>Feel free to reach out to connect or discuss potential collaborations.</p>
+    <p>Contact: aatmamartya[at]proton[dot]me</p>
 </body>
 </html>
