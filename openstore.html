@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store Redirect</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // iOS devices
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "https://apps.apple.com/in/app/mandi-mitra/id6478404044";
+      }
+      // Android devices
+      else if (/android/i.test(userAgent)) {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.aatmamartya.mandimitra";
+      }
+      // Other devices
+      else {
+        window.location.href = "https://amartyadav.com/projects";
+      }
+    });
+  </script>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #f4f4f4; color: #333;">
+  <h1>Redirecting...</h1>
+  <p>You will be redirected to the relevant app store shortly.</p>
+</body>
+</html>
