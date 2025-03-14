@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
@@ -63,25 +63,51 @@
             border: none;
             margin: 20px 0;
         }
+        
+        /* Language selector styles */
+        .language-selector {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .language-btn {
+            cursor: pointer;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: none;
+            font-size: 0.9em;
+        }
+        
+        .language-btn.active {
+            background-color: #eee;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <div>
-            <h1>Amartya Yadav</h1>
+            <h1 data-i18n="name">Amartya Yadav</h1>
             <p>
-                MSc Student in High Performance Computing<br>
-                <a href="https://www.epcc.ed.ac.uk">EPCC, University of Edinburgh</a><br>
+                <span data-i18n="title">MSc Student in High Performance Computing</span><br>
+                <a href="https://www.epcc.ed.ac.uk" data-i18n="institution">EPCC, University of Edinburgh</a><br>
                 <b>aatmamartya[at]proton[dot]me</b>
             </p>
             
-            
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="projects.html">Projects</a>
-                <a href="updates.html">Updates</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html" data-i18n="nav.home">Home</a>
+                <a href="about.html" data-i18n="nav.about">About</a>
+                <a href="projects.html" data-i18n="nav.projects">Projects</a>
+                <a href="updates.html" data-i18n="nav.updates">Updates</a>
+                <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            </div>
+            
+            <!-- Language selector -->
+            <div class="language-selector">
+                <button class="language-btn active" data-lang="en">English</button>
+                <button class="language-btn" data-lang="hi">हिंदी</button>
             </div>
         </div>
         
@@ -89,27 +115,31 @@
     </div>
     <hr>
 
-    <p>Hi! I'm Amartya. I'm a software developer currently pursuing my MSc in High Performance Computing at EPCC, University of Edinburgh.
+    <p data-i18n="intro.p1">Hi! I'm Amartya. I'm a software developer currently pursuing my MSc in High Performance Computing at EPCC, University of Edinburgh.
         I specialize in parallel and scientific computing, backend development, mobile applications.</p>
 
-    <p>I'm passionate about applied mathematics, high-performance computing, open-source software, socio-political issues, and the intersection of technology and society.
+    <p data-i18n="intro.p2">I'm passionate about applied mathematics, high-performance computing, open-source software, socio-political issues, and the intersection of technology and society.
         When I'm not coding, you'll find me trekking mountains, reading political and social science literature, or working out.</p>
 
-    <h3>Current Projects and Research</h3>
+    <h3 data-i18n="section.currentProjects">Current Projects and Research</h3>
     <ul>
-        <li><strong>Implementing Taylor Green Vortex Decay using Lattice-Boltzmann methods on Cerebras CS2</strong></li>
-        As part of my MSc project under the supervision of Dr. Justs Zarins at EPCC, I am working on implementing the Taylor Green Vortex Decay problem using Lattice-Boltzmann methods on the Cerebras CS2 accelerator. 
-        While this problem has been previously implemented in parallel using OpenMP, MPI, and CUDA for Nvidia GPUs, a similar implementation for the Cerebras CS2 is yet to be achieved.
+        <li><strong data-i18n="project.title">Implementing Taylor Green Vortex Decay using Lattice-Boltzmann methods on Cerebras CS2</strong></li>
+        <span data-i18n="project.description">As part of my MSc project under the supervision of Dr. Justs Zarins at EPCC, I am working on implementing the Taylor Green Vortex Decay problem using Lattice-Boltzmann methods on the Cerebras CS2 accelerator. 
+        While this problem has been previously implemented in parallel using OpenMP, MPI, and CUDA for Nvidia GPUs, a similar implementation for the Cerebras CS2 is yet to be achieved.</span>
     </ul>
 
-    <h3>Published Apps</h3>
+    <h3 data-i18n="section.publishedApps">Published Apps</h3>
     <ul>
-        <li>Quick Panchang - Hindu Calendar and Festivals: <a href="https://apps.apple.com/gb/app/quickpanchang-hindu-calendar/id6475807190?mt=12">Get it on the Mac App Store</a></li>
-        <li>Mandi Mitra - Sabzi Mandi Price Calculator: <a href="/openstore.html">Get it on Google Play Store or Apple App Store [click the link on your phone]</a></li>
+        <li><span data-i18n="app.panchang">Quick Panchang - Hindu Calendar and Festivals:</span> <a href="https://apps.apple.com/gb/app/quickpanchang-hindu-calendar/id6475807190?mt=12" data-i18n="app.getOnMac">Get it on the Mac App Store</a></li>
+        <li><span data-i18n="app.mandi">Mandi Mitra - Sabzi Mandi Price Calculator:</span> <a href="/openstore.html" data-i18n="app.getOnMobile">Get it on Google Play Store or Apple App Store [click the link on your phone]</a></li>
     </ul>
 
     <hr>
 
     <p>Contact: aatmamartya[at]proton[dot]me</p>
+    
+    <!-- Add the JavaScript files at the end of the body -->
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
 </body>
 </html>
