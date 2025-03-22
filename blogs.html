@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - Amartya Yadav</title>
+    <style>
+        body {
+            color: rgb(0, 0, 0);
+            background-color: rgb(240, 240, 240);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        a {
+            color: #000099;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #990000;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+        }
+
+        .photo {
+            width: 300px;
+            height: auto;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: rgb(153, 0, 0);
+        }
+
+        .nav-links {
+            margin: 20px 0;
+        }
+
+        .nav-links a {
+            margin-right: 20px;
+        }
+
+        hr {
+            height: 1px;
+            background-color: #ccc;
+            border: none;
+            margin: 20px 0;
+        }
+
+        /* Language selector styles */
+        .language-selector {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .language-btn {
+            cursor: pointer;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: none;
+            font-size: 0.9em;
+        }
+
+        .language-btn.active {
+            background-color: #eee;
+            font-weight: bold;
+        }
+
+        /* Blog post styles */
+        .blog-list {
+            margin-top: 30px;
+        }
+
+        .blog-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .blog-item:last-child {
+            border-bottom: none;
+        }
+
+        .blog-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: rgb(51, 51, 51);
+        }
+
+        .blog-meta {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .blog-excerpt {
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            color: #555;
+        }
+
+        /* Search and filter */
+        .filter-container {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 250px;
+        }
+
+        .filter-select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div>
+            <div class="nav-links">
+                <a href="index.html" data-i18n="nav.home">Home</a>
+                <a href="about.html" data-i18n="nav.about">About</a>
+                <a href="projects.html" data-i18n="nav.projects">Projects</a>
+                <a href="blogs.html" class="active" data-i18n="nav.blog">Blog</a>
+                <a href="updates.html" data-i18n="nav.updates">Updates</a>
+                <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            </div>
+
+            <!-- Language selector -->
+            <div class="language-selector">
+                <button class="language-btn active" data-lang="en">English</button>
+                <button class="language-btn" data-lang="hi">हिंदी</button>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+
+    <h2 data-i18n="blog.title">My Blog Posts</h2>
+    <p data-i18n="blog.intro">Here you'll find my thoughts on technology, society, politics, and high-performance
+        computing. I write about things that matter to me and hopefully to you too.</p>
+
+    <!-- Search and filter -->
+    <div class="filter-container">
+        <input type="text" class="search-box" id="searchBox" placeholder="Search posts..." data-i18n="blog.search">
+        <select class="filter-select" id="tagFilter" data-i18n="blog.filter">
+            <option value="all">All Categories</option>
+            <option value="privacy">Privacy</option>
+            <option value="tech">Technology</option>
+            <option value="society">Society</option>
+        </select>
+    </div>
+
+    <!-- Blog list -->
+    <div class="blog-list" id="blogList">
+        <!-- Blog post 1 -->
+        <div class="blog-item" data-tags="privacy,tech,society">
+            <h3 class="blog-title"><a href="posts/post1.html">"I Don't Have Anything to Hide" — The
+                    Dangerous Myth</a></h3>
+            <div class="blog-meta">March 22, 2025 · 10 min read</div>
+            <div class="blog-excerpt">
+                <p>Apple was recently forced by the UK government to provide access to the encrypted data of Apple
+                    users—only in unencrypted form. Under the Investigatory Powers Act (IPA), firms are compelled to
+                    provide law enforcement agencies with data access. And to make matters worse, Apple cannot make this
+                    demand public (by law)...</p>
+            </div>
+            <div>
+                <span class="tag">Privacy</span>
+                <span class="tag">Technology</span>
+                <span class="tag">Society</span>
+            </div>
+            <a href="posts/post1.html" class="read-more">Read more →</a>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p>Contact: aatmamartya[at]proton[dot]me</p>
+
+    <!-- JavaScript for search and filter functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const blogItems = document.querySelectorAll('.blog-item');
+            const searchBox = document.getElementById('searchBox');
+            const tagFilter = document.getElementById('tagFilter');
+
+            // Search and filter function
+            function filterPosts() {
+                const searchTerm = searchBox.value.toLowerCase();
+                const selectedTag = tagFilter.value;
+
+                blogItems.forEach(item => {
+                    const title = item.querySelector('.blog-title').textContent.toLowerCase();
+                    const excerpt = item.querySelector('.blog-excerpt').textContent.toLowerCase();
+                    const tags = item.getAttribute('data-tags');
+
+                    const matchesSearch = title.includes(searchTerm) || excerpt.includes(searchTerm);
+                    const matchesTag = selectedTag === 'all' || tags.includes(selectedTag);
+
+                    if (matchesSearch && matchesTag) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            // Add event listeners
+            searchBox.addEventListener('input', filterPosts);
+            tagFilter.addEventListener('change', filterPosts);
+
+            // Language selector functionality
+            const languageButtons = document.querySelectorAll('.language-btn');
+
+            languageButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Remove active class from all buttons
+                    languageButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Here you would typically call a function to change the language
+                    // For a simple demo, we'll just log it
+                    console.log(`Language changed to: ${this.getAttribute('data-lang')}`);
+                });
+            });
+        });
+    </script>
+
+    <!-- Add the JavaScript files for translations -->
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+</body>
+
+</html>
