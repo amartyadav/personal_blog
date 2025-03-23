@@ -14,6 +14,28 @@
             --quote-bg: #f1f1f1;
             --quote-border: #e63946;
         }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+        }
+
+        a {
+            color: #000099;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #990000;
+        }
+
+        .nav-links {
+            margin: 20px 0;
+        }
+
+        .nav-links a {
+            margin-right: 20px;
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -84,6 +106,22 @@
 </head>
 
 <body>
+
+    <div class="header">
+        <div>
+            <div class="nav-links">
+                <a href="../index.html" data-i18n="nav.home">Home</a>
+                <a href="../about.html" data-i18n="nav.about">About</a>
+                <a href="../projects.html" data-i18n="nav.projects">Projects</a>
+                <a href="../blogs.html" class="active" data-i18n="nav.blog">Blog</a>
+                <a href="../updates.html" data-i18n="nav.updates">Updates</a>
+                <a href="../contact.html" data-i18n="nav.contact">Contact</a>
+            </div>
+    
+        </div>
+    
+    </div>
+
     <div class="container">
         <h1>"I Don't Have Anything to Hide" — The Dangerous Myth</h1>
 
