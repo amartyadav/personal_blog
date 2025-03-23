@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { generateRSS } = require('../generate-rss'); // Adjust path as needed
+const { generateRSS } = require('../util/generate-rss'); // Adjust path as needed
 const app = express();
 
 // Generate RSS once on startup
