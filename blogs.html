@@ -2,10 +2,36 @@
 <html lang="en">
 
 <head>
+
+    <link rel="alternate" type="application/rss+xml" title="Amartya Yadav's Blog" href="/rss.xml" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs - Amartya Yadav</title>
     <style>
+        .rss-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 10px 0;
+            color: #f26522;
+            /* RSS orange */
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .rss-link:hover {
+            background-color: #eee;
+            text-decoration: none;
+        }
+
+        .rss-link i {
+            margin-right: 5px;
+        }
+
+
         body {
             color: rgb(0, 0, 0);
             background-color: rgb(240, 240, 240);
@@ -183,6 +209,10 @@
             <option value="society">Society</option>
         </select>
     </div>
+
+    <a href="/rss.xml" class="rss-link" title="Subscribe via RSS">
+        <i class="fas fa-rss"></i> Subscribe via RSS
+    </a>
 
     <!-- Blog list -->
     <div class="blog-list" id="blogList">
