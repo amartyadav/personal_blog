@@ -4,8 +4,8 @@ const glob = require('glob');
 const { JSDOM } = require('jsdom');
 
 // Configuration
-const blogDir = './blogs';
-const websiteUrl = 'https://yourdomain.com';
+const blogDir = './posts';
+const websiteUrl = 'https://amartyadav.com';
 const blogTitle = "Amartya Yadav's Blog";
 const blogDescription = "Thoughts on technology, society, politics, and high-performance computing.";
 
@@ -34,8 +34,8 @@ function extractMetadata(filePath) {
     title,
     description,
     pubDate,
-    link: `${websiteUrl}/blogs/${path.basename(filePath)}`,
-    guid: `${websiteUrl}/blogs/${path.basename(filePath)}`
+    link: `${websiteUrl}/posts/${path.basename(filePath)}`,
+    guid: `${websiteUrl}/posts/${path.basename(filePath)}`
   };
 }
 
