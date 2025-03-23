@@ -5,43 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy in the Digital Age</title>
+    <link rel="stylesheet" href="../components/comments.css">
     <style>
-        /* Comments section styling */
-        .comments-section {
-            margin-top: 40px;
-            padding: 25px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-
-            /* Match the container width */
-            width: auto;
-            max-width: none;
-            box-sizing: border-box;
-        }
-
-        .comments-section h3 {
-            color: rgb(153, 0, 0);
-            margin-top: 0;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-
-        /* Style for the Cusdis thread container */
-        #cusdis_thread {
-            margin-top: 15px;
-            width: 100%;
-            min-height: 150px;
-        }
-
-        /* Make sure the iframe expands properly but stays within bounds */
-        #cusdis_thread iframe {
-            width: 100% !important;
-            min-height: 400px !important;
-            max-height: none !important;
-            box-sizing: border-box !important;
-        }
 
         :root {
             --primary-color: #2a2a2a;
@@ -400,42 +365,15 @@
         <div class="separator">* * *</div>
 
         <p class="highlight" style="text-align: center; font-size: 1.2rem;">It is all good until it goes bad.</p>
+        
+        <script src="../components/comments.js"></script>
+        <script>loadComments("post1", "Privacy is a myth");</script>
 
-
-        <div class="comments-section" style="margin-top: 40px;">
-            <h2>Comments</h2>
-            <!-- Comments -->
-            <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="78c7cda4-ac7c-477f-93ed-d250f005fb36"
-                data-page-id="post1" data-page-url="https://amartyadav.com/posts/post1.html"
-                data-page-title="I Don't Have Anything to Hide — The Dangerous Myth" data-theme="light"></div>
-            <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-        </div>
+        
     </div>
 </body>
 
-<script>
-    document.getElementById('comment-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const comment = document.getElementById('comment').value;
 
-        const commentElement = document.createElement('div');
-        commentElement.style.borderBottom = '1px solid #ccc';
-        commentElement.style.padding = '10px 0';
-
-        const nameElement = document.createElement('strong');
-        nameElement.textContent = name;
-        commentElement.appendChild(nameElement);
-
-        const commentTextElement = document.createElement('p');
-        commentTextElement.textContent = comment;
-        commentElement.appendChild(commentTextElement);
-
-        document.getElementById('comments-list').appendChild(commentElement);
-
-        document.getElementById('comment-form').reset();
-    });
-</script>
 
 <!--- footer with date and name of the author --->
 <footer style="text-align: center; margin-top: 20px;">
