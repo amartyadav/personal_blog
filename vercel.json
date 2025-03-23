@@ -15,7 +15,7 @@
     { "src": "css/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/rss.xml", "dest": "/server/server.js" },
+    { "src": "/rss.xml", "dest": "/rss.xml" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/server/server.js" }
   ]
