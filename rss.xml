@@ -2,12 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Amartya Yadav's Blog</title>
-  <link>https://yourdomain.com</link>
+  <link>https://amartyadav.com</link>
   <description>Thoughts on technology, society, politics, and high-performance computing.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 23 Mar 2025 14:55:27 GMT</lastBuildDate>
-  <atom:link href="https://yourdomain.com/rss.xml" rel="self" type="application/rss+xml" />
+  <lastBuildDate>Sun, 23 Mar 2025 15:16:44 GMT</lastBuildDate>
+  <atom:link href="https://amartyadav.com/rss.xml" rel="self" type="application/rss+xml" />
   
+  
+  <item>
+    <title>"I Don't Have Anything to Hide" — The Dangerous Myth</title>
+    <link>https://amartyadav.com/posts/post1.html</link>
+    <description><![CDATA[Apple was recently forced by the UK government to provide access to the encrypted data of Apple users—only in
+            unencrypted form. Under the Investigatory Powers Act (IPA), firms are compelled to provide law enforcement
+            agencies ...]]></description>
+    <pubDate>Sun, 23 Mar 2025 14:35:46 GMT</pubDate>
+    <guid>https://amartyadav.com/posts/post1.html</guid>
+  </item>
   
 </channel>
 </rss>
