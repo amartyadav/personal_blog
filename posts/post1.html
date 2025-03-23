@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy in the Digital Age</title>
+    <link rel="stylesheet" href="../components/comments.css">
     <style>
+
         :root {
             --primary-color: #2a2a2a;
             --accent-color: #e63946;
@@ -14,6 +16,7 @@
             --quote-bg: #f1f1f1;
             --quote-border: #e63946;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
@@ -103,6 +106,29 @@
             color: var(--accent-color);
         }
     </style>
+
+    <script>
+        // Wait for Cusdis to load
+        window.addEventListener('load', function () {
+            // Check every second for 10 seconds to find the Cusdis iframe
+            let checkCount = 0;
+            const checkInterval = setInterval(function () {
+                const cusdisIframe = document.querySelector('#cusdis_thread iframe');
+                if (cusdisIframe) {
+                    // Set up a message listener for the iframe's content height
+                    window.addEventListener('message', function (e) {
+                        if (e.data && e.data.from === 'cusdis' && e.data.height) {
+                            cusdisIframe.style.height = e.data.height + 'px';
+                        }
+                    });
+                    clearInterval(checkInterval);
+                } else if (checkCount >= 10) {
+                    clearInterval(checkInterval); // Stop checking after 10 attempts
+                }
+                checkCount++;
+            }, 1000);
+        });
+    </script>
 </head>
 
 <body>
@@ -117,9 +143,9 @@
                 <a href="../updates.html" data-i18n="nav.updates">Updates</a>
                 <a href="../contact.html" data-i18n="nav.contact">Contact</a>
             </div>
-    
+
         </div>
-    
+
     </div>
 
     <div class="container">
@@ -339,8 +365,15 @@
         <div class="separator">* * *</div>
 
         <p class="highlight" style="text-align: center; font-size: 1.2rem;">It is all good until it goes bad.</p>
+        
+        <script src="../components/comments.js"></script>
+        <script>loadComments("post1", "Privacy is a myth");</script>
+
+        
     </div>
 </body>
+
+
 
 <!--- footer with date and name of the author --->
 <footer style="text-align: center; margin-top: 20px;">
