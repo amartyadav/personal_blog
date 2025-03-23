@@ -1,7 +1,7 @@
 // i18n.js - Handles language switching functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Load saved language preference from localStorage, or default to English
-    let currentLang = localStorage.getItem('preferredLanguage') || 'hi';
+    let currentLang = localStorage.getItem('preferredLanguage') || 'en';
     
     // Initialize the page with the saved/default language
     setLanguage(currentLang);
