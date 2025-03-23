@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server/server.js",
     "dev": "nodemon dev-server.js",
-    "generate-rss": "node generate-rss.js",
+    "generate-rss": "node util/generate-rss.js",
     "build": "npm run generate-rss"
   },
   "repository": {
