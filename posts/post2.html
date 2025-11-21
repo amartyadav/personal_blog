@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nostalgia of the Old Internet and Low Tech – Part 1</title>
+    <link rel="stylesheet" href="../components/comments.css">
+    <style>
+        :root {
+            --primary-color: #2a2a2a;
+            --accent-color: #e63946;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --quote-bg: #f1f1f1;
+            --quote-border: #e63946;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+        }
+
+        a {
+            color: #000099;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #990000;
+        }
+
+        .nav-links {
+            margin: 20px 0;
+        }
+
+        .nav-links a {
+            margin-right: 20px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--background-color);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        blockquote {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--quote-border);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        ul {
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .separator {
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--accent-color);
+        }
+    </style>
+
+    <script>
+        // Wait for Cusdis to load
+        window.addEventListener('load', function () {
+            // Check every second for 10 seconds to find the Cusdis iframe
+            let checkCount = 0;
+            const checkInterval = setInterval(function () {
+                const cusdisIframe = document.querySelector('#cusdis_thread iframe');
+                if (cusdisIframe) {
+                    // Set up a message listener for the iframe's content height
+                    window.addEventListener('message', function (e) {
+                        if (e.data && e.data.from === 'cusdis' && e.data.height) {
+                            cusdisIframe.style.height = e.data.height + 'px';
+                        }
+                    });
+                    clearInterval(checkInterval);
+                } else if (checkCount >= 10) {
+                    clearInterval(checkInterval); // Stop checking after 10 attempts
+                }
+                checkCount++;
+            }, 1000);
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div>
+            <div class="nav-links">
+                <a href="../index.html" data-i18n="nav.home">Home</a>
+                <a href="../about.html" data-i18n="nav.about">About</a>
+                <a href="../projects.html" data-i18n="nav.projects">Projects</a>
+                <a href="../blogs.html" class="active" data-i18n="nav.blog">Blog</a>
+                <a href="../updates.html" data-i18n="nav.updates">Updates</a>
+                <a href="../contact.html" data-i18n="nav.contact">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>The Nostalgia of the Old Internet and Low Tech – Part 1</h1>
+
+        <p>Often I find myself being overwhelmed by how much the Internet and tech have creeped into my life. The
+            millennials, and even the weird category I fall into (born too late for the advent of the Internet, but
+            early enough with Internet and tech access to have seen the old Internet), share this nostalgia with me. A
+            time when websites were not corporate-designed, extremely polished slops, and blogging was still a thing.
+            People still blog, and you are most likely reading this on my website, on my blog, but it is rare now. How
+            many of your friends own their websites, their place on the net where they can just be themselves – raw,
+            open and producing content which requires more than 15 seconds of your attention span? Hardly any.</p>
+
+        <p>I remember being 14 or 15 and going on some forums online and engaging with them. All of them were niche,
+            hobby-related forums. Entire websites were dedicated to helping people with a very specific hobby or
+            interest. I also remember regularly checking my RSS feed for some blogs that I used to like. And how did I
+            happen upon these blogs – by visiting someone&rsquo;s blog site or website. It used to be random stuff on
+            there – their thoughts on the latest Android, their weekend trip to somewhere, some cycling stuff that I
+            used to follow, dog-training experiences, etc.</p>
+
+        <p>And did it have any like counters? No. No one cared how many people like your stuff, your production, your
+            content on the internet. They used to have a hit counter. They could see how many people are reading your
+            blogs, but nothing about likes or the plethora of reactions that you see on Facebook and WhatsApp. Some of
+            the more advanced blogs had a comment section, which was mostly used by real people commenting in a
+            generally positive or at least neutral tone.</p>
+
+        <p>And trust me, I am not in favour of going prehistoric and ditching social media altogether. But do you
+            remember when Instagram was a photo-sharing app with a chronological feed that used to say &ldquo;You have
+            all caught up&rdquo; after scrolling for a bit? The only videos were IGTV or short videos, but that was
+            usually not someone&rsquo;s main content. You used to find a couple of such videos amongst a majority of
+            photos.</p>
+
+        <p>And that brings me to the photos themselves – they used to be real. I distinctly remember posting a photo
+            about my new gym gloves (I was 16) with the caption &ldquo;No more calloused hands&rdquo;, and another post
+            just after that about a new flavour of whey protein supplement that I bought. 20–30 likes used to be a lot
+            back then, but I knew the people liking it weren&rsquo;t addicted to double-tapping every post they saw.
+            Comments were real and non-generic, unlike today&rsquo;s combination and repetition of emojis or American
+            slang.</p>
+
+        <p>The feed was less algorithmic (using a tech-illiterate term here; everything is algorithmic in one way or
+            another) and more raw. I was not forced to see content from people or &lsquo;creators&rsquo; that I had no
+            clue existed. I only saw stuff from people that I followed.</p>
+
+        <p>I also remember Facebook similarly. Facebook, in some ways, has still kept its soul alive (somehow, or is it
+            the people?). Or maybe I just don&rsquo;t use it enough to tell, who knows.</p>
+
+        <p>What I am trying to say is, the internet has been capitalised. And I do not necessarily mean in terms of
+            money, but in terms of attention, in terms of focus and insecurity. I do not want to see creators on my
+            feed; I want to see my friends. I still want to be able to &lsquo;browse&rsquo; the internet and come across
+            people&rsquo;s places – their websites – where they share what they like. I wish that to happen outside of
+            the conventional social media platforms. I want websites to feel less like modern web apps. No, I do not
+            hate animations, but I also want things to be simpler and to the point. I want information about your
+            product, not scroll 5–6 times down to see a bunch of images fly together and produce an animation that is
+            utterly useless.</p>
+
+        <p>I want to be able to go to a restaurant and not have to scan a QR code to view the menu on my phone. I go to
+            restaurants with my friends and family to escape just that – my digital life. I want a paper menu and to
+            talk to real people to order and pay in cash.</p>
+
+        <p>And that last bit brings me to UPI. India has revolutionised digital payments in the country using the
+            Unified Payments Interface. I can scan a QR code to pay in real time directly from my bank account to
+            anyone – friends, businesses, everyone. You will hardly find any vendor in India that does not accept QR
+            code payments. And a lot of them prefer that you pay them via UPI, as they do not have to deal with cash
+            and change. Don&rsquo;t get me wrong – UPI is great, and convenient. But it also directly translates to me
+            having to have my phone with me everywhere I go. I cannot just go for groceries or shopping without my
+            phone. Yes, people still take cash, but they do not prefer it, and I get a second look when I am at the
+            payment counter and make the cashier hold my cash and count the change instead of scanning the conveniently
+            placed QR code on their desk.</p>
+
+        <p>India has a weird obsession with tech. We adopt tech too quickly and too efficiently. The cashier also wants
+            me to give them my phone number so they can produce the bill. &ldquo;It is the system, sir&rdquo;, they say.
+            They want me to give them my phone number so that they can conveniently sign me up for unlimited texts about
+            offers, discounts, sales, and a membership programme which would save me some &#8377; on my next purchase.
+        </p>
+
+        <p>I usually ask them to give me my bill offline, but they insist strongly, saying it is not possible –
+            &ldquo;It is the system, sir&rdquo;, they say. I know they are usually lying, so I just say, &ldquo;Alright
+            then, I do not want to purchase my items anymore&rdquo;. That sentence magically changes their system so it
+            suddenly accepts offline billings without my phone number.</p>
+
+        <p>So what I am trying to say in this passive-aggressive short rant (read blog) is that living like the old
+            days, with tech governing every aspect of society, is still possible, but no longer convenient. Arguing with
+            the cashier, avoiding reels when I just want to see what my friends and acquaintances are up to, and using
+            cash to pay for my cabs are extra steps I need to take to do the things I used to be able to do just 8–10
+            years ago.</p>
+
+        <p>I just wish social media went back to the time before we were all attention-and-like whores on the internet.
+            I wish to be able to step out conveniently without my phone.</p>
+
+        <p>I have not included a lot of other &lsquo;old-internet&rsquo; and &lsquo;pre-tech society&rsquo; nostalgia
+            here, or this would have been a really long rant (read blog). Perhaps I will rant a part 2 someday.</p>
+
+        <div class="separator">* * *</div>
+
+        <script src="../components/comments.js"></script>
+        <script>loadComments("post2", "The Nostalgia of the Old Internet and Low Tech – Part 1");</script>
+
+        <div style="text-align: center;">
+            <a href='http://www.freevisitorcounters.com'>free counter</a>
+            <script type='text/javascript'
+                src='https://www.freevisitorcounters.com/auth.php?id=1e0490bd7b3db94e6c059749eb2c9030cbff41a2'></script>
+            <script type="text/javascript"
+                src="https://www.freevisitorcounters.com/en/home/counter/1319327/t/0"></script>
+        </div>
+
+    </div>
+</body>
+
+<!--- footer with date and name of the author --->
+<footer style="text-align: center; margin-top: 20px;">
+    <p>&copy; India. 21/11/2025. Written by Amartya Yadav</p>
+</footer>
+
+</html>
