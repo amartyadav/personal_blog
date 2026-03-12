@@ -157,24 +157,36 @@
         <hr />
 
         <p data-i18n="intro.p1">
-            Hi! I'm Amartya. I'm a software developer. I recently completed my
-            MSc in High Performance Computing at EPCC, University of Edinburgh.
-            I specialise in parallel and wafer-scale computing (Cerebras WSE),
-            accelerator programming, backend development and mobile
-            applications.
+            Hi! I'm Amartya. I'm an HPC Software Engineer at Calligo Technologies. I completed my
+            MSc in High Performance Computing from EPCC, University of Edinburgh.
+            I work at the intersection of high-performance computing and computational physics — implementing, profiling,
+            and comparing parallel solvers, CFD kernels, and numerical methods across conventional x86 architectures and experimental RISC-V hardware with posit arithmetic. 
+            My work spans everything from multigrid thermal solvers to Lattice Boltzmann Method kernels, with deep profiling across memory, cache, power, and roofline performance.
+            I also have extensive experience in implementing scientific computing kernels on the Cerebras Wafer-Scale Engine (WSE-3) and GPU programming (CUDA).    
         </p>
 
         <p data-i18n="intro.p2">
-            I'm passionate high-performance computing, open-source software,
+            I'm passionate high-performance computing, computational physics and mathematics, open-source software,
             linguistics, socio-political issues, and the intersection of
             technology and society. When I'm not coding, you'll find me hiking,
-            reading (mostly Hindi literature, Hindu shaastra and some fiction
-            from the West), or working out.
+            reading, or working out.
         </p>
 
-        <h3 data-i18n="section.currentProjects">Research</h3>
+        <h3 data-i18n="section.currentProjects">Some of my research</h3>
         <ul>
             <li>
+            <strong>Multi-Material Thermal Analysis using HYPRE BoomerAMG using x86 (IEEE 754) and RISC-V(UTTUNGA with Posits)
+            </strong>
+            <span>As part of my work at Calligo Technologies, I implemented a heat transfer model for a composite 2-D material of 
+            aluminium and carbon-fibre reinforced polymer using the Poisson equation in HYPRE BoomerAMG and visualised the results.
+            This was done for x86 (with IEEE 754 floats) and RISC-V (using Calligo's UTTUNGA board with Posits). The x86 version failed to
+            converge for extremely low error tolerances in the range of 1e-14 to 1e-15, whereas the UTTUNGA version converged in around 11-12 iterations for the same.
+            This can be credited to the tapered precision offered by Posits around the golden range of 1.0. This experiment proved how well suited Uttunga with Posits is for 
+            such high-fidelity scientific computations.
+            </span>
+            </li>
+
+             <li>
                 <strong data-i18n="project.title"
                     >Lattice-Boltzmann methods for Computational Fluid Dynamics
                     on Cerebras CS-3</strong
