@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Fidelity Thermal Analysis: Benchmarking Posit Arithmetic on the UTTUNGA Platform</title>
+    <style>
+        :root {
+            --primary-color: #2a2a2a;
+            --accent-color: #e63946;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --quote-bg: #f1f1f1;
+            --quote-border: #e63946;
+            --code-bg: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--background-color);
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            color: #555;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .math-block {
+            background: #fdfdfd;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Times New Roman", Times, serif;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .figure-box {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .figure-box img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .figure-caption {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            margin: 20px 0;
+        }
+
+        .nav-links a {
+            margin-right: 20px;
+            color: #000099;
+            text-decoration: none;
+        }
+
+        .separator {
+            text-align: center;
+            margin: 3rem 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../about.html">About</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../blogs.html" style="font-weight: bold;">Blog</a>
+            <a href="../contact.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>High-Fidelity Thermal Analysis: Benchmarking Posit Arithmetic on the UTTUNGA Platform</h1>
+
+        <p>Numerical simulation in the automotive industry is evolving beyond simple geometries. As we move toward complex multi-material battery enclosures—combining high-conductivity Aluminum plates with insulating Carbon Fiber Reinforced Polymers (CFRP)—the underlying math becomes "stiff." This stiffness pushes traditional IEEE 754 floating-point arithmetic to its breaking point.</p>
+
+        <p>In this study, we benchmarked the <b>UTTUNGA board</b>, a RISC-V platform utilizing Posit arithmetic, against a standard x86 baseline. We utilized the HYPRE BoomerAMG algebraic multigrid solver to navigate a numerically brutal thermal interface problem.</p>
+
+        <h2>1. The Physical Model: Joule Heating & Material Jumps</h2>
+        <p>The core of this simulation is the variable-coefficient Poisson equation:
+            <div class="math-block">∇ · (k(x) ∇u) = f(x)</div>
+            where $u$ is the temperature and $k(x)$ is the thermal conductivity. We assigned <b>Aluminum ($k=200$)</b> to the left half of the domain and <b>Carbon Fiber ($k=2$)</b> to the right.
+        </p>
+        
+        <p>The internal heat source, $f(x)$, represents real-world volumetric generation such as <b>Joule heating</b> from electrical busbars or <b>exothermic chemical reactions</b> within battery cells. To handle the interface between these materials, we implemented the <b>Harmonic Mean</b> logic to calculate jump coefficients:
+            <div class="math-block">w_ij = 2k_i k_j / (k_i + k_j)</div>
+            This ensures flux continuity, but it creates the "stiffness" that exposes the precision limits of standard hardware.
+        </p>
+
+        <h2>2. Visualizing the "Thermal Cliff"</h2>
+        <p>To validate the physics, we used GLVis to generate temperature surface plots. These visualizations clearly show the non-uniform response: the Aluminum acts as a flat heat sink, while the Carbon Fiber traps heat in a massive "thermal dome".</p>
+
+        <div class="figure-box">
+            <img src="conductive_view.png" alt="Isometric View Conductive">
+            <div class="figure-caption">Figure 1: Isometric View from the Conductive Perspective. Note the sudden sharp gradient at the material interface boundary.</div>
+        </div>
+
+        <div class="figure-box">
+            <img src="insulating_view.png" alt="Isometric View Insulating">
+            <div class="figure-caption">Figure 2: Isometric View from the Insulating Perspective. The CFRP zone exhibits significant thermal accumulation compared to the Aluminum sink.</div>
+        </div>
+
+        <div class="figure-box">
+            <img src="top_down_view.png" alt="Planar View">
+            <div class="figure-caption">Figure 3: Planar Contour View showing the symmetry of the internal heat source and Dirichlet boundary sinks.</div>
+        </div>
+
+        <h2>3. Numerical Performance: UTTUNGA vs. x86</h2>
+        <p>While the physics made sense, the hardware results told a different story. When pushing for extreme precision (tolerances of $10^{-13}$ to $10^{-15}$), the standard x86 baseline failed catastrophically. The rounding noise at the interface "cliff" caused the residual to explode to $1.26 \times 10^4$.</p>
+
+        <p>The UTTUNGA board, utilizing <b>Posit arithmetic</b>, handled the same stiff matrix with clinical stability. Because Posits provide increased precision bits in the "golden zone" around 1.0, the BoomerAMG V-cycles remained mathematically consistent.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Grid Size ($n$)</th>
+                    <th>Tolerance</th>
+                    <th>Platform</th>
+                    <th>Iterations</th>
+                    <th>Final Residual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>50</td>
+                    <td>10<sup>-15</sup></td>
+                    <td><b>UTTUNGA</b></td>
+                    <td>14</td>
+                    <td>3.99e-15</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td>10<sup>-15</sup></td>
+                    <td><b>UTTUNGA</b></td>
+                    <td>15</td>
+                    <td>4.45e-15</td>
+                </tr>
+                <tr>
+                    <td>50/100</td>
+                    <td>10<sup>-14</sup></td>
+                    <td><b>x86_64</b></td>
+                    <td>Diverged</td>
+                    <td>1.26e+04</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Conclusion: Precision That Matters</h2>
+        <p>This study demonstrates that the numerical foundations of our hardware directly impact our ability to simulate safe automotive structures. While x86 legacy math loses the signal at material interfaces, the <b>UTTUNGA board</b> maintains the precision necessary for high-fidelity safety margins. For industry leaders like Tata Motors, this board represents the difference between a failed solver and a successful thermal runaway simulation.</p>
+
+        <div class="separator">* * *</div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026. Technical Study by Amartya Yadav. Powered by UTTUNGA & RISC-V.</p>
+    </footer>
+
+</body>
+</html>
