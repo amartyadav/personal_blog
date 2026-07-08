@@ -2,18 +2,27 @@
 const express = require('express');
 const path = require('path');
 const { generateRSS } = require('./util/generate-rss');
+const { generateBlogIndex } = require('./util/generate-blog-index');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Generate RSS feed on server start
+// Generate RSS feed + markdown blog manifests on server start
 generateRSS();
+generateBlogIndex();
 
-// Watch for file changes in blogs directory to regenerate RSS
+// Watch for file changes in posts directory to regenerate feeds/manifests.
+// { recursive: true } so changes in posts/tech and posts/life are caught too.
 const fs = require('fs');
-fs.watch('./posts', (eventType, filename) => {
-  if (filename && filename.endsWith('.html')) {
-    console.log(`File ${filename} changed, regenerating RSS feed...`);
+fs.watch('./posts', { recursive: true }, (eventType, filename) => {
+  if (!filename) return;
+  const name = filename.toString();
+  if (name.endsWith('.html')) {
+    console.log(`File ${name} changed, regenerating RSS feed...`);
     generateRSS();
+  }
+  if (name.endsWith('.md')) {
+    console.log(`File ${name} changed, regenerating blog manifests...`);
+    generateBlogIndex();
   }
 });
 
