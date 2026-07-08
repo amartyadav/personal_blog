@@ -6,7 +6,8 @@
     "start": "node server/server.js",
     "dev": "nodemon dev-server.js",
     "generate-rss": "node util/generate-rss.js",
-    "build": "npm run generate-rss"
+    "generate-blog-index": "node util/generate-blog-index.js",
+    "build": "npm run generate-rss && npm run generate-blog-index"
   },
   "repository": {
     "type": "git",
