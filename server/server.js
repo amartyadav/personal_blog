@@ -1,10 +1,12 @@
 const express = require('express');
 const path = require('path');
 const { generateRSS } = require('../util/generate-rss'); // Adjust path as needed
+const { generateBlogIndex } = require('../util/generate-blog-index');
 const app = express();
 
-// Generate RSS once on startup
+// Generate RSS + markdown blog manifests once on startup
 generateRSS();
+generateBlogIndex();
 
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname, '..')));
