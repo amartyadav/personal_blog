@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script data-goatcounter="https://amartya-blog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script src="https://kit.fontawesome.com/4892cb91f5.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Blog - Amartya Yadav</title>
+    <style>
+        body {
+            color: rgb(0, 0, 0);
+            background-color: rgb(240, 240, 240);
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            padding: 40px;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        a { color: #000099; text-decoration: none; }
+        a:hover { color: #0066cc; text-decoration: underline; }
+
+        h1 { margin-bottom: 10px; }
+        h2 { color: rgb(153, 0, 0); }
+
+        .nav-links { margin: 20px 0; }
+        .nav-links a { margin-right: 20px; }
+        .nav-links a.active { font-weight: bold; }
+
+        hr { height: 1px; background-color: #ccc; border: none; margin: 20px 0; }
+
+        .post-list { margin-top: 20px; }
+
+        .post-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .post-item:last-child { border-bottom: none; }
+
+        .post-title {
+            font-size: 1.4em;
+            margin-bottom: 6px;
+        }
+
+        .post-meta {
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .post-excerpt { margin-bottom: 10px; }
+
+        .tag {
+            display: inline-block;
+            background-color: #e8e8e8;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.78em;
+            margin-right: 4px;
+            color: #444;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        .loading { color: #888; font-style: italic; }
+        .error   { color: rgb(153, 0, 0); }
+
+        .intro-note {
+            background-color: #f8f8f8;
+            border-left: 3px solid rgb(153, 0, 0);
+            padding: 10px 16px;
+            margin-bottom: 24px;
+            font-size: 0.95em;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f8f8f8;
+            border: 1px dashed #ccc;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        .empty-state .emoji { font-size: 2.2em; display: block; margin-bottom: 10px; }
+        .empty-state h3 { margin: 0 0 8px; color: rgb(153, 0, 0); }
+        .empty-state p { margin: 0 auto; max-width: 480px; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="blogs.html">Blog</a>
+        <a href="tech-blog.html" class="active">Tech Blog</a>
+        <a href="life-blog.html">Life Blog</a>
+        <a href="updates.html">Updates</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <hr>
+
+    <h2>Technical Blog</h2>
+    <div class="intro-note">
+        Deep-dives into HPC, parallel computing, numerical methods, and the projects I work on.
+        Posts include code, benchmarks, and implementation notes.
+    </div>
+
+    <div class="post-list" id="postList">
+        <p class="loading">Loading posts…</p>
+    </div>
+
+    <hr>
+    <p>Contact: amartyadav[at]gmail[dot]com</p>
+
+    <script>
+        async function loadPosts() {
+            const container = document.getElementById('postList');
+            try {
+                const res = await fetch('/tech-posts.json');
+                if (!res.ok) throw new Error('Failed to load post index');
+                const posts = await res.json();
+
+                if (posts.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <span class="emoji">🛠️</span>
+                            <h3>Nothing here… yet.</h3>
+                            <p>I'm currently heads-down in the trenches — profiling kernels, chasing
+                            convergence, and building things worth writing about. Once the dust settles,
+                            I'll document the work here in full: code, benchmarks, and all. Check back soon.</p>
+                        </div>`;
+                    return;
+                }
+
+                container.innerHTML = posts.map(p => `
+                    <div class="post-item">
+                        <div class="post-title">
+                            <a href="tech-post.html?post=${encodeURIComponent(p.slug)}">${p.title}</a>
+                        </div>
+                        <div class="post-meta">${p.date} · ${p.readTime}</div>
+                        <div class="post-excerpt">${p.excerpt}</div>
+                        <div>${(p.tags || []).map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                        <a class="read-more" href="tech-post.html?post=${encodeURIComponent(p.slug)}">Read more →</a>
+                    </div>
+                `).join('');
+            } catch (e) {
+                container.innerHTML = `<p class="error">Could not load posts: ${e.message}</p>`;
+            }
+        }
+
+        loadPosts();
+    </script>
+</body>
+</html>

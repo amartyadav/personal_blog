@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script data-goatcounter="https://amartya-blog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script src="https://kit.fontawesome.com/4892cb91f5.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Blog - Amartya Yadav</title>
+
+    <!-- marked: Markdown parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+
+    <!-- highlight.js: Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/core.min.js"></script>
+    <!-- Common languages -->
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/c.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/cpp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/typescript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/rust.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/fortran.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/makefile.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/plaintext.min.js"></script>
+
+    <!-- KaTeX: LaTeX math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+        body {
+            color: rgb(0, 0, 0);
+            background-color: rgb(240, 240, 240);
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            padding: 40px;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        a { color: #000099; text-decoration: none; }
+        a:hover { color: #0066cc; text-decoration: underline; }
+
+        h1 { margin-bottom: 10px; }
+
+        .nav-links { margin: 20px 0; }
+        .nav-links a { margin-right: 20px; }
+        .nav-links a.active { font-weight: bold; }
+
+        hr { height: 1px; background-color: #ccc; border: none; margin: 20px 0; }
+
+        /* ---- Post content styles ---- */
+        #post-content h1 {
+            font-size: 1.9em;
+            margin-bottom: 6px;
+            color: rgb(30, 30, 30);
+        }
+
+        #post-content h2 {
+            color: rgb(153, 0, 0);
+            font-size: 1.4em;
+            margin-top: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+        }
+
+        #post-content h3 {
+            font-size: 1.15em;
+            margin-top: 1.5em;
+            color: rgb(50, 50, 50);
+        }
+
+        #post-content p { margin: 0.8em 0; }
+
+        #post-content code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.88em;
+            background: #e8e8e8;
+            padding: 1px 5px;
+            border-radius: 3px;
+        }
+
+        #post-content pre {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 1.2em 0;
+        }
+
+        #post-content pre code {
+            background: none;
+            padding: 0;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+
+        #post-content blockquote {
+            margin: 1em 0;
+            padding: 8px 16px;
+            border-left: 3px solid rgb(153, 0, 0);
+            background: #f8f8f8;
+            color: #444;
+        }
+
+        #post-content table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1.2em 0;
+            font-size: 0.9em;
+        }
+
+        #post-content th, #post-content td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        #post-content th {
+            background-color: #e8e8e8;
+            font-weight: bold;
+        }
+
+        #post-content tr:nth-child(even) { background-color: #f5f5f5; }
+
+        #post-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1em auto;
+        }
+
+        #post-content ul, #post-content ol {
+            padding-left: 1.8em;
+        }
+
+        #post-content li { margin: 0.3em 0; }
+
+        #post-content hr {
+            height: 1px;
+            background-color: #ccc;
+            border: none;
+            margin: 2em 0;
+        }
+
+        .post-header {
+            margin-bottom: 24px;
+        }
+
+        .back-link {
+            font-size: 0.9em;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .loading { color: #888; font-style: italic; }
+        .error   { color: rgb(153, 0, 0); }
+
+        /* KaTeX display math */
+        .katex-display { overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="blogs.html">Blog</a>
+        <a href="tech-blog.html" class="active">Tech Blog</a>
+        <a href="life-blog.html">Life Blog</a>
+        <a href="updates.html">Updates</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <hr>
+
+    <a class="back-link" href="tech-blog.html">← Back to Tech Blog</a>
+
+    <div id="post-content">
+        <p class="loading">Loading post…</p>
+    </div>
+
+    <hr>
+    <p>Contact: amartyadav[at]gmail[dot]com</p>
+
+    <script>
+        // Configure marked with highlight.js
+        marked.setOptions({
+            highlight: function(code, lang) {
+                if (lang && hljs.getLanguage(lang)) {
+                    return hljs.highlight(code, { language: lang }).value;
+                }
+                return hljs.highlightAuto(code).value;
+            },
+            breaks: false,
+            gfm: true,
+        });
+
+        async function loadPost() {
+            const container = document.getElementById('post-content');
+            const params = new URLSearchParams(window.location.search);
+            const slug = params.get('post');
+
+            if (!slug) {
+                container.innerHTML = '<p class="error">No post specified. <a href="tech-blog.html">Browse posts →</a></p>';
+                return;
+            }
+
+            try {
+                const res = await fetch(`/posts/tech/${encodeURIComponent(slug)}.md`);
+                if (!res.ok) throw new Error(`Post not found (${res.status})`);
+                let md = await res.text();
+
+                // Strip YAML front-matter (the --- ... --- block at the top).
+                // It drives the listing metadata, not the rendered post body.
+                md = md.replace(/^﻿?---\s*\r?\n[\s\S]*?\r?\n---\s*\r?\n?/, '');
+
+                // Extract title from first H1 for page <title>
+                const titleMatch = md.match(/^#\s+(.+)/m);
+                if (titleMatch) {
+                    document.title = titleMatch[1] + ' - Amartya Yadav';
+                }
+
+                container.innerHTML = marked.parse(md);
+
+                // Trigger KaTeX auto-render after content is inserted
+                if (window.renderMathInElement) {
+                    renderMathInElement(container, {
+                        delimiters: [
+                            { left: '$$', right: '$$', display: true },
+                            { left: '$',  right: '$',  display: false },
+                            { left: '```math', right: '```', display: true },
+                        ],
+                        throwOnError: false,
+                    });
+                }
+            } catch (e) {
+                container.innerHTML = `<p class="error">Could not load post: ${e.message}</p>
+                    <p><a href="tech-blog.html">← Back to Tech Blog</a></p>`;
+            }
+        }
+
+        // KaTeX loads deferred; wait for it before rendering math
+        document.addEventListener('DOMContentLoaded', loadPost);
+    </script>
+</body>
+</html>
