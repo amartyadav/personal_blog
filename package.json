@@ -22,7 +22,7 @@
   "homepage": "https://github.com/amartyadav/personal_blog#readme",
   "description": "",
   "dependencies": {
-    "express": "^4.22.2",
+    "express": "^5.2.1",
     "glob": "^11.1.0",
     "jsdom": "^26.0.0",
     "vercel": "^56.5.0"
