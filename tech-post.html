@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script data-goatcounter="https://amartya-blog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <script src="https://kit.fontawesome.com/4892cb91f5.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
 
     <!-- highlight.js: Syntax highlighting -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github.min.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
     <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/core.min.js"></script>
     <!-- Common languages -->
     <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/c.min.js"></script>
@@ -169,6 +165,7 @@
         /* KaTeX display math */
         .katex-display { overflow-x: auto; }
     </style>
+    <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
     <div class="nav-links">

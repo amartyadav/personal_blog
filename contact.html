@@ -53,7 +53,11 @@
             border: none;
             margin: 20px 0;
         }
+        .nav-links a.active { font-weight: bold; }
+        pre { background: #f8f8f8; border: 1px solid #ddd; border-radius: 4px; padding: 10px; overflow-x: auto; font-size: 0.8em; white-space: pre-wrap; word-break: break-all; }
     </style>
+    <link rel="author" href="/humans.txt">
+    <link rel="stylesheet" href="/css/site.css">
 </head>
 <body style="color: rgb(0, 0, 0); background-color: rgb(240, 240, 240); font-family: Arial, sans-serif;">
 
@@ -62,10 +66,10 @@
     <a href="about.html" data-i18n="nav.about">About</a>
     <a href="research.html">Research</a>
     <a href="projects.html" data-i18n="nav.projects">Projects</a>
-    <a href="blogs.html" class="active" data-i18n="nav.blog">Blog</a>
+    <a href="blogs.html" data-i18n="nav.blog">Blog</a>
     <a href="updates.html" data-i18n="nav.updates">Updates</a>
     <a href="now.html">Now</a>
-    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    <a href="contact.html" class="active" data-i18n="nav.contact">Contact</a>
   </div>
 
 <h1 style="text-align: center;">Contact</h1>
@@ -80,15 +84,15 @@
   </li>
   <li style="margin: 10px 0;">
       <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/mastodon.svg" alt="forgejo" width="20" height="20">
-    <b>Mastodon</b>: <a href="https://fosstodon.org/@amartya" target="_blank">@amartya</a> - I post about tech, FOSS, and my daily life and rant here.
+    <b>Mastodon</b>: <a href="https://fosstodon.org/@amartya" target="_blank" rel="me">@amartya</a> - I post about tech, FOSS, and my daily life and rant here.
   </li>
   <li style="margin: 10px 0;">
       <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/codeberg.svg" alt="Codeberg" width="20" height="20">
-    <b>Codeberg</b>: <a href="https://codeberg.org/amartya" target="_blank">codeberg.org/amartya</a> - My important projects (both public and private). I prefer Codeberg and my private Git server over GitHub for my public projects.
+    <b>Codeberg</b>: <a href="https://codeberg.org/amartya" target="_blank" rel="me">codeberg.org/amartya</a> - My important projects (both public and private). I prefer Codeberg and my private Git server over GitHub for my public projects.
   </li>
   <li style="margin: 10px 0;">
       <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/github.svg" alt="Codeberg" width="20" height="20">
-    <b>GitHub</b>: <a href="https://github.com/amartyadav" target="_blank">github.com/amartyadav</a> - My trivial private projects and contributions to Github hosted projects. A lot of my projects are on Codeberg or my private Git server, this is just a mirror and for some trivial private projects.
+    <b>GitHub</b>: <a href="https://github.com/amartyadav" target="_blank" rel="me">github.com/amartyadav</a> - My trivial private projects and contributions to Github hosted projects. A lot of my projects are on Codeberg or my private Git server, this is just a mirror and for some trivial private projects.
   </li>
   <li style="margin: 10px 0;">
     <i class="fa-brands fa-matrix"></i>
@@ -99,6 +103,17 @@
     <b>Email</b>: amartyadav[at]gmail[dot]com</a>
   </li>
 </ul>
+
+<div style="max-width: 600px; margin: 30px auto 0;">
+  <h3>Link to me</h3>
+  <p>If you have a personal site too, here's an old-web 88&times;31 button. Hotlinking is fine:</p>
+  <p><a href="https://amartyadav.com"><img class="button-88x31" src="/media/88x31.svg" width="88" height="31" alt="amartyadav.com"></a></p>
+  <pre><code>&lt;a href="https://amartyadav.com"&gt;&lt;img src="https://amartyadav.com/media/88x31.svg" width="88" height="31" alt="amartyadav.com"&gt;&lt;/a&gt;</code></pre>
+  <p>Also available: <a href="/rss.xml">RSS</a> &middot; <a href="/humans.txt">humans.txt</a> &middot; <a href="uses.html">/uses</a></p>
+  <!-- TODO: PGP key, e.g. <p>PGP: <a href="/pgp.asc"><code>XXXX XXXX XXXX XXXX</code></a></p> (put the key at /media/pgp.asc or add *.asc to vercel.json) -->
+  <!-- TODO: webring, once you join one, e.g. <p>&larr; <a href="...">prev</a> · <a href="...">webring name</a> · <a href="...">next</a> &rarr;</p> -->
+</div>
+
     <footer class="site-footer">
         <p>Contact: amartyadav[at]gmail[dot]com</p>
     </footer>

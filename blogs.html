@@ -2,13 +2,11 @@
 <html lang="en">
 
 <head>
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script data-goatcounter="https://amartya-blog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <script src="https://kit.fontawesome.com/4892cb91f5.js" crossorigin="anonymous"></script>
-    <link rel="alternate" type="application/rss+xml" title="Amartya Yadav's Blog" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Amartya Yadav's Blog (all)" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Amartya Yadav — Tech" href="/rss-tech.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Amartya Yadav — Life &amp; Literature" href="/rss-life.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Amartya Yadav — Society &amp; General" href="/rss-general.xml" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Amartya Yadav</title>
@@ -160,10 +158,20 @@
 
         .no-results { color: #666; font-style: italic; }
 
+        .section-feed {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.5em;
+            font-weight: normal;
+            color: #f26522;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+
         @media (max-width: 600px) {
             body { padding: 20px 16px; }
         }
     </style>
+    <link rel="stylesheet" href="/css/site.css">
 </head>
 
 <body>
@@ -193,13 +201,13 @@
     <div class="toolbar">
         <input type="text" class="search-box" id="searchBox" placeholder="Search posts…" aria-label="Search posts">
         <a href="/rss.xml" class="rss-link" title="Subscribe via RSS">
-            <i class="fas fa-rss"></i> Subscribe via RSS
+            <i class="fas fa-rss"></i> RSS (all posts)
         </a>
     </div>
 
     <!-- ===================== Tech ===================== -->
     <section class="blog-section" id="section-tech" data-section="tech">
-        <h2>Tech Blog</h2>
+        <h2>Tech Blog <a class="section-feed" href="/rss-tech.xml" title="RSS feed for this section">rss</a></h2>
         <div class="intro-note">
             Deep-dives into HPC, parallel computing, numerical methods, and the projects I work on.
             Posts include code, benchmarks, and implementation notes.
@@ -226,7 +234,7 @@
 
     <!-- ===================== Life & Literature ===================== -->
     <section class="blog-section" id="section-life" data-section="life">
-        <h2>Life &amp; Literature</h2>
+        <h2>Life &amp; Literature <a class="section-feed" href="/rss-life.xml" title="RSS feed for this section">rss</a></h2>
         <div class="intro-note">
             My literature and personal writing — travel, places I've lived, books, poetry and prose, and
             everyday reflections on life outside of code. Written whenever the mood strikes.
@@ -239,7 +247,7 @@
 
     <!-- ===================== Society & General ===================== -->
     <section class="blog-section" id="section-general" data-section="general">
-        <h2>Society &amp; General</h2>
+        <h2>Society &amp; General <a class="section-feed" href="/rss-general.xml" title="RSS feed for this section">rss</a></h2>
         <div class="intro-note">
             Thoughts on society, politics, privacy, the internet, and the wider world — the things that
             matter to me, and hopefully to you too.

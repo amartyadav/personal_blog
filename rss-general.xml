@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Amartya Yadav — Society &amp; General</title>
+  <link>https://amartyadav.com/blogs.html#general</link>
+  <description>Essays on society, privacy, the internet, and other issues.</description>
+  <language>en</language>
+  <lastBuildDate>Fri, 21 Nov 2025 00:00:00 GMT</lastBuildDate>
+  <atom:link href="https://amartyadav.com/rss-general.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>The Nostalgia of the Old Internet and Low Tech – Part 1</title>
+    <link>https://amartyadav.com/posts/post2.html</link>
+    <guid>https://amartyadav.com/posts/post2.html</guid>
+    <pubDate>Fri, 21 Nov 2025 00:00:00 GMT</pubDate>
+    <category>general</category>
+    <description><![CDATA[Often I find myself being overwhelmed by how much the Internet and tech have creeped into my life. The millennials, and even the weird category I fall into (born too late for the advent of the Internet, but early enough with Internet and tech access to have seen the old Internet)…]]></description>
+  </item>
+  <item>
+    <title>&quot;I Don&apos;t Have Anything to Hide&quot; — The Dangerous Myth</title>
+    <link>https://amartyadav.com/posts/post1.html</link>
+    <guid>https://amartyadav.com/posts/post1.html</guid>
+    <pubDate>Sat, 22 Mar 2025 00:00:00 GMT</pubDate>
+    <category>general</category>
+    <description><![CDATA[Apple was recently forced by the UK government to provide access to the encrypted data of Apple users—only in unencrypted form. Under the Investigatory Powers Act (IPA), firms are compelled to provide law enforcement agencies with data access. And to make matters worse, Apple can…]]></description>
+  </item>
+</channel>
+</rss>

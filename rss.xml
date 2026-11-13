@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>Amartya Yadav's Blog</title>
-  <link>https://amartyadav.com</link>
-  <description>Thoughts on technology, society, politics, and high-performance computing.</description>
-  <language>en-us</language>
-  <lastBuildDate>Fri, 13 Nov 2026 11:01:50 GMT</lastBuildDate>
+  <title>Amartya Yadav&apos;s Blog</title>
+  <link>https://amartyadav.com/blogs.html</link>
+  <description>Thoughts on technology, society, literature, and high-performance computing.</description>
+  <language>en</language>
+  <lastBuildDate>Thu, 23 Jul 2026 00:00:00 GMT</lastBuildDate>
   <atom:link href="https://amartyadav.com/rss.xml" rel="self" type="application/rss+xml" />
-  
-  
+
+  <item>
+    <title>Aberdeen</title>
+    <link>https://amartyadav.com/life-post.html?post=Aberdeen</link>
+    <guid>https://amartyadav.com/life-post.html?post=Aberdeen</guid>
+    <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+    <category>life</category>
+    <description><![CDATA[क्या ऐसा होता है कि कई बरसों पुरानी व्यतीत कि हुई ज़िंदगी फिर से दिल में आस कि बाढ़ लाकर वर्तमान जीवन से मन हट दे? मैं किसी इश्क़-मोहब्बत की बात नहीं कर रहा हूँ। बल्कि एक शहर की - ऐबर्डीन।]]></description>
+  </item>
   <item>
     <title>High-Fidelity Thermal Analysis: Benchmarking Posit Arithmetic on the UTTUNGA Platform</title>
     <link>https://amartyadav.com/posts/post3.html</link>
-    <description><![CDATA[Numerical simulation in the automotive industry is evolving beyond simple geometries. As we move toward complex multi-material battery enclosures—combining high-conductivity Aluminum plates with insulating Carbon Fiber Reinforced Polymers (CFRP)—the ...]]></description>
-    <pubDate>Fri, 13 Nov 2026 10:58:52 GMT</pubDate>
     <guid>https://amartyadav.com/posts/post3.html</guid>
+    <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+    <category>tech</category>
+    <description><![CDATA[Numerical simulation in the automotive industry is evolving beyond simple geometries. As we move toward complex multi-material battery enclosures—combining high-conductivity Aluminum plates with insulating Carbon Fiber Reinforced Polymers (CFRP)—the underlying math becomes "stiff…]]></description>
   </item>
-  
   <item>
     <title>The Nostalgia of the Old Internet and Low Tech – Part 1</title>
     <link>https://amartyadav.com/posts/post2.html</link>
-    <description><![CDATA[Often I find myself being overwhelmed by how much the Internet and tech have creeped into my life. The
-            millennials, and even the weird category I fall into (born too late for the advent of the Internet, but
-            early enough with I...]]></description>
-    <pubDate>Fri, 13 Nov 2026 10:58:52 GMT</pubDate>
     <guid>https://amartyadav.com/posts/post2.html</guid>
+    <pubDate>Fri, 21 Nov 2025 00:00:00 GMT</pubDate>
+    <category>general</category>
+    <description><![CDATA[Often I find myself being overwhelmed by how much the Internet and tech have creeped into my life. The millennials, and even the weird category I fall into (born too late for the advent of the Internet, but early enough with Internet and tech access to have seen the old Internet)…]]></description>
   </item>
-  
   <item>
-    <title>"I Don't Have Anything to Hide" — The Dangerous Myth</title>
+    <title>&quot;I Don&apos;t Have Anything to Hide&quot; — The Dangerous Myth</title>
     <link>https://amartyadav.com/posts/post1.html</link>
-    <description><![CDATA[Apple was recently forced by the UK government to provide access to the encrypted data of Apple users—only in
-            unencrypted form. Under the Investigatory Powers Act (IPA), firms are compelled to provide law enforcement
-            agencies ...]]></description>
-    <pubDate>Fri, 13 Nov 2026 10:58:52 GMT</pubDate>
     <guid>https://amartyadav.com/posts/post1.html</guid>
+    <pubDate>Sat, 22 Mar 2025 00:00:00 GMT</pubDate>
+    <category>general</category>
+    <description><![CDATA[Apple was recently forced by the UK government to provide access to the encrypted data of Apple users—only in unencrypted form. Under the Investigatory Powers Act (IPA), firms are compelled to provide law enforcement agencies with data access. And to make matters worse, Apple can…]]></description>
   </item>
-  
 </channel>
 </rss>

@@ -1,0 +1,128 @@
+/*
+ * Shared site stylesheet. Linked as the LAST thing in every page's <head>,
+ * so it overrides each page's own inline <style> where the two overlap.
+ *
+ *  1. One font for the whole site
+ *  2. Monospace accents (nav, dates, tags, footer)
+ *  3. Dark mode via prefers-color-scheme (no toggle, no JS)
+ */
+
+:root { color-scheme: light dark; }
+
+/* ---------- 1. One font ---------- */
+body { font-family: Arial, Helvetica, sans-serif; }
+
+/* ---------- 2. Monospace accents ---------- */
+.nav-links,
+.blog-meta,
+.post-meta,
+.pub-meta,
+.now-meta,
+.tag,
+.pub-kind,
+.site-footer,
+.section-nav a,
+.back-link {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+.nav-links { font-size: 0.92em; }
+
+code, kbd, samp, pre {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* Site footer (content filled in by /js/footer.js) */
+.site-footer {
+    margin-top: 40px;
+    padding-top: 12px;
+    border-top: 1px solid #ccc;
+    font-size: 0.8em;
+    color: #666;
+}
+.site-footer p { margin: 4px 0; font-size: inherit; }
+
+/* 88x31 button + "link to me" snippet */
+.button-88x31 { image-rendering: pixelated; vertical-align: middle; }
+
+/* ---------- 3. Dark mode ---------- */
+@media (prefers-color-scheme: dark) {
+    /* Blog-post pages define these variables */
+    :root {
+        --primary-color: #e6e6e6;
+        --background-color: #141414;
+        --text-color: #d6d6d6;
+        --quote-bg: #222;
+        --accent-color: #ff6b6b;
+        --quote-border: #ff6b6b;
+    }
+
+    html, body {
+        background-color: #141414 !important;  /* !important beats contact.html's inline style */
+        color: #d6d6d6 !important;
+    }
+
+    a, .nav-links a, a:visited { color: #8ab4f8; }
+    a:hover { color: #aecbfa; }
+
+    h1, h3, #post-content h1, #post-content h3 { color: #e6e6e6; }
+    h2, #post-content h2, .comments-section h3,
+    .empty-state h3, .error { color: #ff7b7b; }
+
+    hr, #post-content hr { background-color: #333; }
+
+    /* Panels and cards */
+    .container,
+    .comments-section,
+    .intro-note,
+    .machine,
+    .empty-state,
+    .rss-link,
+    .section-nav a,
+    #post-content blockquote,
+    .math-block,
+    pre, #post-content pre {
+        background-color: #1e1e1e !important;
+        border-color: #333 !important;
+        color: inherit;
+        box-shadow: none !important;
+    }
+
+    .intro-note, .machine, #post-content blockquote { border-left-color: #ff6b6b !important; }
+    .machine.upcoming { border-left-color: #666 !important; }
+
+    .section-nav a.active {
+        background-color: #ff6b6b !important;
+        border-color: #ff6b6b !important;
+        color: #141414 !important;
+    }
+
+    .tag, .pub-kind, #post-content code { background-color: #2a2a2a; color: #ccc; }
+    #post-content pre code { background: none; }
+
+    input, select, .search-box, .filter-select {
+        background-color: #1e1e1e;
+        color: #d6d6d6;
+        border-color: #444;
+    }
+
+    /* Tables */
+    th, #post-content th { background-color: #262626 !important; }
+    th, td, #post-content th, #post-content td { border-color: #3a3a3a !important; }
+    #post-content tr:nth-child(even) { background-color: #1b1b1b; }
+
+    /* Muted text */
+    .blog-meta, .post-meta, .pub-meta, .now-meta, .placeholder,
+    .figure-caption, .site-footer, .no-results, .loading,
+    .machine dt, footer, #post-content blockquote { color: #999 !important; }
+
+    .project, .blog-item, .post-item, .site-footer,
+    .comments-section h3 { border-color: #333 !important; }
+
+    /* Black monochrome icons (e.g. GitHub logo on the contact page) */
+    img[src$="github.svg"] { filter: invert(1); }
+
+    /* Keep photos and figures from glaring */
+    img:not(.button-88x31) { filter: brightness(0.92); }
+    img[src$="github.svg"] { filter: invert(1) brightness(0.92); }
+}

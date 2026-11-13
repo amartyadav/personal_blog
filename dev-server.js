@@ -21,9 +21,24 @@ fs.watch('./posts', { recursive: true }, (eventType, filename) => {
     generateRSS();
   }
   if (name.endsWith('.md')) {
-    console.log(`File ${name} changed, regenerating blog manifests...`);
+    console.log(`File ${name} changed, regenerating blog manifests and RSS feeds...`);
     generateBlogIndex();
+    generateRSS();
   }
+});
+
+const ROOT = __dirname;
+// Build commit for the site footer. Vercel exposes the deployed commit as
+// VERCEL_GIT_COMMIT_SHA; locally, fall back to asking git.
+app.get('/api/version', (req, res) => {
+  let sha = process.env.VERCEL_GIT_COMMIT_SHA || null;
+  if (!sha) {
+    try {
+      sha = require('child_process').execSync('git rev-parse HEAD', { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+    } catch (_) { /* no git available */ }
+  }
+  res.set('Cache-Control', 'public, max-age=300');
+  res.json({ sha });
 });
 
 // Old per-section blog pages were merged into blogs.html

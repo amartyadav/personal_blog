@@ -1,0 +1,21 @@
+/* humanstxt.org */
+
+/* TEAM */
+    Author: Amartya Yadav
+    Role: Incoming PhD Research Fellow in HPC, University of Oslo & Simula Research Laboratory
+    Contact: amartyadav [at] gmail [dot] com
+    Mastodon: @amartya@fosstodon.org
+    Code: https://codeberg.org/amartya
+    From: Gorakhpur, India -> Oslo, Norway
+
+/* THANKS */
+    EPCC, University of Edinburgh
+    Everyone who still keeps a personal website
+
+/* SITE */
+    Standards: HTML5, CSS3
+    Components: plain HTML/CSS/JS, KaTeX, highlight.js, marked
+    Build: Node.js scripts for RSS feeds and blog indexes; LaTeX (latexmk) for the CV
+    Hosting: Vercel
+    Trackers: none
+    Source: https://github.com/amartyadav/personal_blog

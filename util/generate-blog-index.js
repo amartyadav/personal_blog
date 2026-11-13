@@ -94,5 +94,5 @@ function generateBlogIndex() {
 if (require.main === module) {
   generateBlogIndex();
 } else {
-  module.exports = { generateBlogIndex };
+  module.exports = { generateBlogIndex, extractPost };
 }

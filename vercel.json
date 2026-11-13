@@ -8,6 +8,7 @@
     { "src": "*.json", "use": "@vercel/static" },
     { "src": "*.xml", "use": "@vercel/static" },
     { "src": "*.ico", "use": "@vercel/static" },
+    { "src": "*.txt", "use": "@vercel/static" },
     { "src": "images/**", "use": "@vercel/static" },
     { "src": "media/**", "use": "@vercel/static" },
     { "src": "posts/**", "use": "@vercel/static" },

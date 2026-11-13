@@ -2,84 +2,121 @@ const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
 const { JSDOM } = require('jsdom');
+const { extractPost } = require('./generate-blog-index');
 
-// Configuration
-const blogDir = './posts';
+// Generates one feed for the whole blog plus one per section:
+//   rss.xml          everything
+//   rss-tech.xml     Tech
+//   rss-life.xml     Life & Literature
+//   rss-general.xml  Society & General
+//
+// Sources:
+//   posts/*.html      hand-written posts; need <meta name="date"> and
+//                     <meta name="blog-section" content="tech|life|general">
+//   posts/tech/*.md   markdown tech posts   (rendered by tech-post.html)
+//   posts/life/*.md   markdown life posts   (rendered by life-post.html)
+//
+// Output is deterministic (dates come from the posts, not file mtimes), so
+// regenerating doesn't produce a diff unless a post actually changed.
+
 const websiteUrl = 'https://amartyadav.com';
-const blogTitle = "Amartya Yadav's Blog";
-const blogDescription = "Thoughts on technology, society, politics, and high-performance computing.";
+const author = 'Amartya Yadav';
 
-// Function to extract metadata from HTML files
-function extractMetadata(filePath) {
-  const html = fs.readFileSync(filePath, 'utf8');
-  const dom = new JSDOM(html);
-  const document = dom.window.document;
-  
-  // Extract title and description using DOM methods
-  const titleElement = document.querySelector('h1') || document.querySelector('h2');
-  const title = titleElement ? titleElement.textContent.trim() : 'Untitled';
-  
-  const paragraphs = document.querySelectorAll('p');
-  let description = '';
-  if (paragraphs.length > 0) {
-    description = paragraphs[0].textContent.trim();
-    if (description.length > 250) description = description.substring(0, 250) + '...';
+const FEEDS = [
+  { file: 'rss.xml', section: null, title: `${author}'s Blog`,
+    description: 'Thoughts on technology, society, literature, and high-performance computing.' },
+  { file: 'rss-tech.xml', section: 'tech', title: `${author} — Tech`,
+    description: 'HPC, parallel computing, numerical methods, and the projects I work on.' },
+  { file: 'rss-life.xml', section: 'life', title: `${author} — Life & Literature`,
+    description: 'Literature and personal writing: travel, places, books, and reflections.' },
+  { file: 'rss-general.xml', section: 'general', title: `${author} — Society & General`,
+    description: 'Essays on society, privacy, the internet, and other issues.' },
+];
+
+const escapeXml = s => String(s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+
+const squash = s => s.replace(/\s+/g, ' ').trim();
+
+function fromHtml(filePath) {
+  const doc = new JSDOM(fs.readFileSync(filePath, 'utf8')).window.document;
+  const meta = name => doc.querySelector(`meta[name="${name}"]`)?.getAttribute('content');
+
+  const title = squash((doc.querySelector('h1') || doc.querySelector('h2'))?.textContent || 'Untitled');
+  const firstPara = [...doc.querySelectorAll('.container p, article p, p')]
+    .map(p => squash(p.textContent)).find(t => t.length > 40) || '';
+  const description = firstPara.length > 280 ? firstPara.slice(0, 280).trim() + '…' : firstPara;
+
+  const date = meta('date');
+  const section = meta('blog-section');
+  if (!date || !section) {
+    console.warn(`generate-rss: ${filePath} is missing <meta name="date"> or <meta name="blog-section">; skipped`);
+    return null;
   }
-  
-  // Get last modified date from file stats
-  const stats = fs.statSync(filePath);
-  const pubDate = stats.mtime;
-  
+
+  const link = `${websiteUrl}/posts/${path.basename(filePath)}`;
+  return { title, description, date: new Date(date), section, link };
+}
+
+function fromMarkdown(filePath, section, viewer) {
+  const p = extractPost(filePath);
   return {
-    title,
-    description,
-    pubDate,
-    link: `${websiteUrl}/posts/${path.basename(filePath)}`,
-    guid: `${websiteUrl}/posts/${path.basename(filePath)}`
+    title: p.title,
+    description: p.excerpt,
+    date: new Date(p.date),
+    section,
+    link: `${websiteUrl}/${viewer}?post=${encodeURIComponent(p.slug)}`,
   };
 }
 
-// Generate RSS XML
-function generateRSS() {
-  // Get all HTML files in the blog directory
-  const files = glob.sync(`${blogDir}/*.html`);
-  
-  // Extract metadata from each file
-  const items = files.map(file => extractMetadata(file))
-    .sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
-  
-  // Generate RSS XML
-  const rss = `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-  <title>${blogTitle}</title>
-  <link>${websiteUrl}</link>
-  <description>${blogDescription}</description>
-  <language>en-us</language>
-  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-  <atom:link href="${websiteUrl}/rss.xml" rel="self" type="application/rss+xml" />
-  
-  ${items.map(item => `
-  <item>
-    <title>${item.title}</title>
-    <link>${item.link}</link>
-    <description><![CDATA[${item.description}]]></description>
-    <pubDate>${item.pubDate.toUTCString()}</pubDate>
-    <guid>${item.guid}</guid>
-  </item>
-  `).join('')}
-</channel>
-</rss>`;
-  
-  // Write the RSS file
-  fs.writeFileSync('rss.xml', rss);
-  console.log('RSS feed generated successfully!');
+function collectItems() {
+  return [
+    ...glob.sync('posts/*.html').map(fromHtml),
+    ...glob.sync('posts/tech/*.md').map(f => fromMarkdown(f, 'tech', 'tech-post.html')),
+    ...glob.sync('posts/life/*.md').map(f => fromMarkdown(f, 'life', 'life-post.html')),
+  ].filter(Boolean).sort((a, b) => b.date - a.date);
 }
 
-// If running this script directly
+function renderFeed(feed, items) {
+  const self = `${websiteUrl}/${feed.file}`;
+  const lastBuild = items.length ? items[0].date : new Date(0);
+  const page = feed.section ? `${websiteUrl}/blogs.html#${feed.section}` : `${websiteUrl}/blogs.html`;
+
+  return `<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>${escapeXml(feed.title)}</title>
+  <link>${escapeXml(page)}</link>
+  <description>${escapeXml(feed.description)}</description>
+  <language>en</language>
+  <lastBuildDate>${lastBuild.toUTCString()}</lastBuildDate>
+  <atom:link href="${escapeXml(self)}" rel="self" type="application/rss+xml" />
+${items.map(item => `
+  <item>
+    <title>${escapeXml(item.title)}</title>
+    <link>${escapeXml(item.link)}</link>
+    <guid>${escapeXml(item.link)}</guid>
+    <pubDate>${item.date.toUTCString()}</pubDate>
+    <category>${item.section}</category>
+    <description><![CDATA[${item.description}]]></description>
+  </item>`).join('')}
+</channel>
+</rss>
+`;
+}
+
+function generateRSS() {
+  const items = collectItems();
+  for (const feed of FEEDS) {
+    const subset = feed.section ? items.filter(i => i.section === feed.section) : items;
+    fs.writeFileSync(feed.file, renderFeed(feed, subset));
+  }
+  console.log(`RSS feeds generated (${items.length} items across ${FEEDS.length} feeds)`);
+}
+
 if (require.main === module) {
   generateRSS();
 } else {
-  // Export for use in other files
   module.exports = { generateRSS };
 }

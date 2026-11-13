@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uses - Amartya Yadav</title>
+    <meta name="author" content="Amartya Yadav">
+    <meta name="description" content="The tools, software and things Amartya Yadav uses day to day.">
+    <style>
+        body {
+            color: rgb(0, 0, 0);
+            background-color: rgb(240, 240, 240);
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            padding: 40px;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        a { color: #000099; text-decoration: none; }
+        a:hover { color: #0066cc; text-decoration: underline; }
+
+        .nav-links { margin: 20px 0; }
+        .nav-links a { margin-right: 20px; }
+
+        h2 { color: rgb(153, 0, 0); margin-top: 30px; }
+
+        hr { height: 1px; background-color: #ccc; border: none; margin: 20px 0; }
+
+        dl.uses {
+            display: grid;
+            grid-template-columns: 9em 1fr;
+            gap: 4px 14px;
+            margin: 0;
+        }
+
+        dl.uses dt {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            color: #666;
+            font-size: 0.92em;
+            padding-top: 1px;
+        }
+
+        dl.uses dd { margin: 0; }
+
+        .placeholder { color: #666; font-style: italic; }
+
+        @media (max-width: 600px) {
+            body { padding: 20px 16px; }
+            dl.uses { grid-template-columns: 1fr; }
+            dl.uses dt { margin-top: 8px; }
+        }
+    </style>
+    <link rel="stylesheet" href="/css/site.css">
+</head>
+
+<body>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="blogs.html">Blog</a>
+        <a href="updates.html">Updates</a>
+        <a href="now.html">Now</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <hr>
+
+    <h2>Uses</h2>
+    <p>The tools I reach for every day, inspired by <a href="https://uses.tech">uses.tech</a>. For the big
+        machines, see <a href="machines.html">Machines</a>.</p>
+
+    <h2>Computer</h2>
+    <dl class="uses">
+        <dt>os</dt>
+        <dd>macOS</dd>
+        <dt>machine</dt>
+        <dd class="placeholder">To be added.</dd>
+        <!-- TODO: model / chip / RAM -->
+        <dt>editor</dt>
+        <dd class="placeholder">To be added.</dd>
+        <!-- TODO: editor, theme, font -->
+        <dt>terminal</dt>
+        <dd class="placeholder">To be added.</dd>
+        <!-- TODO: terminal emulator + shell -->
+        <dt>keyboard</dt>
+        <dd class="placeholder">To be added.</dd>
+        <!-- TODO -->
+    </dl>
+
+    <h2>HPC toolbox</h2>
+    <dl class="uses">
+        <dt>languages</dt>
+        <dd>C (primary), C++, Rust, CSL</dd>
+        <dt>parallel</dt>
+        <dd>MPI, OpenMP, CUDA, SYCL</dd>
+        <dt>solvers</dt>
+        <dd>HYPRE (BoomerAMG), OpenFOAM</dd>
+        <dt>profiling</dt>
+        <dd>AMD uProf, Intel VTune, Intel Advisor, LIKWID</dd>
+        <dt>visualise</dt>
+        <dd>ParaView, GLVis</dd>
+        <dt>write-ups</dt>
+        <dd>LaTeX for reports and <a href="/cv/amartya-yadav-cv.pdf">my CV</a>
+            (<a href="/cv/amartya-yadav-cv.tex">source</a>); Markdown for the blog</dd>
+    </dl>
+
+    <h2>Online</h2>
+    <dl class="uses">
+        <dt>code</dt>
+        <dd><a href="https://codeberg.org/amartya">Codeberg</a> and my own Git server; GitHub as a mirror</dd>
+        <dt>chat</dt>
+        <dd><a href="https://matrix.to/#/@arvyagami:matrix.org">Matrix</a></dd>
+        <dt>social</dt>
+        <dd><a href="https://fosstodon.org/@amartya">Mastodon (Fosstodon)</a></dd>
+        <dt>files</dt>
+        <dd>Proton Drive</dd>
+        <dt>this site</dt>
+        <dd>Hand-written HTML, CSS and a little JavaScript. No framework, no trackers, hosted on Vercel.
+            <a href="https://github.com/amartyadav/personal_blog">Source</a>.</dd>
+    </dl>
+
+    <h2>Off the keyboard</h2>
+    <dl class="uses">
+        <dt>wrist</dt>
+        <dd class="placeholder">To be added.</dd>
+        <!-- TODO: your watch(es); horology fans will want reference numbers -->
+        <dt>ride</dt>
+        <dd>Royal Enfield Thunderbird 350: two solo trips from Gorakhpur to Pokhara, Nepal</dd>
+        <dt>mountains</dt>
+        <dd class="placeholder">To be added.</dd>
+        <!-- TODO: trekking kit: boots, pack, etc. -->
+        <dt>reading</dt>
+        <dd>Social science, crime, history, political science and psychology. What I'm reading now is on the
+            <a href="now.html">Now</a> page.</dd>
+    </dl>
+
+    <footer class="site-footer">
+        <p>Contact: amartyadav[at]gmail[dot]com</p>
+    </footer>
+    <script src="/js/footer.js" defer></script>
+</body>
+
+</html>

@@ -13,7 +13,7 @@ function loadComments(pageId, pageTitle) {
          data-page-id="${pageId}" 
          data-page-url="${pageUrl}" 
          data-page-title="${pageTitle}"
-         data-theme="light"></div>
+         data-theme="auto"></div>
   `;
   
   // Add the comments section to the document
