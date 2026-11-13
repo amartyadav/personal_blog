@@ -11,6 +11,7 @@
     { "src": "images/**", "use": "@vercel/static" },
     { "src": "media/**", "use": "@vercel/static" },
     { "src": "posts/**", "use": "@vercel/static" },
+    { "src": "cv/**", "use": "@vercel/static" },
     { "src": "js/**", "use": "@vercel/static" },
     { "src": "css/**", "use": "@vercel/static" }
   ],

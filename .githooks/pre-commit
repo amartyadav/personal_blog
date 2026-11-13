@@ -1,0 +1,4 @@
+#!/bin/sh
+# Stamp the site's "last updated" date into js/footer.js on every commit.
+# Enable once per clone with:  git config core.hooksPath .githooks
+node util/stamp-last-updated.js >/dev/null && git add js/footer.js

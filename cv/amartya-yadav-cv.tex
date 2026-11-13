@@ -1,0 +1,164 @@
+% CV of Amartya Yadav
+%
+% Build:  npm run cv        (or: cd cv && latexmk -pdf amartya-yadav-cv.tex)
+% Output: cv/amartya-yadav-cv.pdf, linked from the website.
+%
+% Lines marked "TODO" are placeholders to fill in as things happen.
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2cm,top=1.6cm,bottom=1.8cm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{153,0,0}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt,parsep=0pt}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-6pt}\rule{\linewidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+
+% \entry{title}{dates}{organisation}{location}
+\newcommand{\entry}[4]{%
+  \textbf{#1}\hfill #2\\
+  \textit{#3}\hfill \textit{#4}\par\vspace{2pt}}
+
+\hypersetup{
+  pdftitle={Amartya Yadav -- CV},
+  pdfauthor={Amartya Yadav}
+}
+
+\begin{document}
+
+% ------------------------------------------------------------------ header
+{\centering
+  {\LARGE\bfseries Amartya Yadav}\\[4pt]
+  PhD Research Fellow in High-Performance Computing (from 1 December 2026)\\
+  University of Oslo \& Simula Research Laboratory\\[4pt]
+  \href{mailto:amartyadav@gmail.com}{amartyadav@gmail.com} \;\textbar\;
+  \href{https://amartyadav.com}{amartyadav.com} \;\textbar\;
+  \href{https://codeberg.org/amartya}{codeberg.org/amartya} \;\textbar\;
+  \href{https://github.com/amartyadav}{github.com/amartyadav}\par
+}
+
+% ------------------------------------------------------------------ interests
+\section*{Research Interests}
+Convergence of HPC and AI; numerical methods and parallel solvers (algebraic multigrid, Gauss--Seidel);
+computational fluid dynamics (Lattice Boltzmann Method); wafer-scale and unconventional architectures;
+number formats (IEEE~754 vs.\ posits); performance engineering.
+
+% ------------------------------------------------------------------ positions
+\section*{Positions}
+
+\entry{PhD Research Fellow, High-Performance Computing}{From Dec 2026}
+      {Dept.\ of Informatics, University of Oslo \& Simula Research Laboratory}{Oslo, Norway}
+\begin{itemize}
+  \item Full-time, three-year research position with Prof.\ Xing Cai on the convergence of HPC and AI.
+  % TODO: add project details once the PhD is under way.
+\end{itemize}
+
+\entry{HPC Software Engineer}{Feb 2026 -- Sep 2026}
+      {Calligo Technologies}{Bengaluru, India}
+\begin{itemize}
+  \item Implemented, profiled and compared parallel solvers on x86 (IEEE~754) and the UTTUNGA RISC-V
+        board with experimental posit arithmetic.
+  \item Multi-material thermal analysis (Poisson, HYPRE BoomerAMG) of a CFRP + aluminium domain. The posit
+        version on UTTUNGA converged in about 11--12 iterations at tolerances of $10^{-14}$--$10^{-15}$, where x86 failed to converge.
+  \item Added OpenMP red-black Gauss--Seidel smoothing to OpenFOAM. Profiled with AMD uProf, Intel VTune,
+        Intel Advisor and LIKWID (cache, memory bandwidth, roofline, power).
+  \item Built a Lattice Boltzmann CFD kernel with a physical validation suite, in serial and OpenMP versions at
+        single and double precision, benchmarked on UTTUNGA against x86.
+  \item Started the company's first FPGA project, porting OpenFOAM hotspot functions to FPGA with HLS.
+  \item Wrote a technical report for every project. Published two OpenFOAM plugins on Zenodo.
+\end{itemize}
+
+\entry{Freelance Software Developer}{2023 -- 2024}
+      {Hospitals in Gorakhpur}{Gorakhpur, India}
+% TODO: check these dates
+\begin{itemize}
+  \item Built electronic patient record and staff management systems.
+\end{itemize}
+
+\entry{Software Developer (Full-Stack)}{2022 -- 2023}
+      {Fennex}{Aberdeen, UK}
+\begin{itemize}
+  \item ASP.NET, TypeScript, React, SQL. Did much of the UI design for the flagship BBSS product on iOS and Android.
+\end{itemize}
+
+% ------------------------------------------------------------------ education
+\section*{Education}
+
+\entry{MSc High Performance Computing, with Merit}{2024 -- 2025}
+      {EPCC, University of Edinburgh}{Edinburgh, UK}
+\begin{itemize}
+  \item Dissertation: Lattice-Boltzmann methods for CFD on the Cerebras CS-3 (Taylor--Green vortex decay in CSL),
+        supervised by Dr.\ Justs Zarins.
+  \item Courses: Advanced Message Passing Programming; Performance Programming; Accelerated Systems;
+        Machine Learning at Scale; Parallel Design Patterns; MPI; OpenMP; Numerical Algorithms in HPC;
+        Design and Analysis of Parallel Algorithms; HPC Architectures.
+\end{itemize}
+
+\entry{BSc (Hons) Computer Science, 2:1}{2018 -- 2022}
+      {Robert Gordon University}{Aberdeen, UK}
+
+% ------------------------------------------------------------------ publications
+\section*{Publications, Software \& Talks}
+
+\textbf{Peer-reviewed papers}\\
+\textit{None yet. Expected during the PhD.}
+% TODO: add papers here, newest first.
+
+\vspace{4pt}
+\textbf{Software}
+\begin{itemize}
+  \item A.~Yadav. \textit{Red-Black Parallel Gauss-Seidel Smoother with DIA Memory Access Pattern}.
+        OpenFOAM plugin, Zenodo, April 2026. % TODO: add DOI
+  \item A.~Yadav. \textit{Gauss-Seidel Smoother with DIA Memory Access Pattern}.
+        OpenFOAM plugin, Zenodo, April 2026. % TODO: add DOI
+\end{itemize}
+
+\textbf{Talks \& tutorials}
+\begin{itemize}
+  \item \textit{Efficient Halo Exchange for Stencil-Based Scientific Codes on Cerebras Wafer-Scale Engine}.
+        Tutorial, Supercomputing India 2025, Bengaluru, November 2025.
+  \item \textit{Multi-Material Thermal Analysis with HYPRE BoomerAMG and Posits on UTTUNGA}.
+        Live demo, investment summit led by Seafund Ventures, June 2026.
+\end{itemize}
+
+% ------------------------------------------------------------------ skills
+\section*{Technical Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+  \textbf{Languages}   & C (primary), C++, Rust, Java, CSL; also Kotlin, Swift, C\#, TypeScript, Python, Elixir \\
+  \textbf{Parallel}    & MPI, OpenMP, CUDA, SYCL, Cerebras WSE-3, FPGA (HLS) \\
+  \textbf{Numerics}    & Lattice Boltzmann Method, Poisson solvers, HYPRE BoomerAMG, OpenFOAM, posit arithmetic \\
+  \textbf{Profiling}   & AMD uProf, Intel VTune, Intel Advisor, LIKWID \\
+  \textbf{Visualisation} & ParaView, GLVis \\
+  \textbf{Systems}     & Cerebras CS-3, Cirrus (EPCC), UTTUNGA (RISC-V), x86 (AMD/Intel)
+\end{tabularx}
+
+% ------------------------------------------------------------------ projects
+\section*{Selected Independent Projects}
+\begin{itemize}
+  \item \textbf{Mandi Mitra} (iOS \& Android, FOSS): grocery price calculator for Indian farmers' markets.
+        No ads, no trackers.
+  \item \textbf{QuickPanchang} (macOS App Store; Electron): Hindu calendar app, backed by my own scrapers,
+        ASP.NET API and caching proxy.
+\end{itemize}
+
+% ------------------------------------------------------------------ languages
+\section*{Languages}
+English, Hindi, Urdu, Bhojpuri, Gujarati, Punjabi (fluent); Norwegian (learning).
+Scripts: Devanagari, Latin, Gujarati, Kaithi.
+
+\vfill
+{\footnotesize\color{gray} Last updated: \today. Built with \LaTeX; source at amartyadav.com/cv/amartya-yadav-cv.tex}
+
+\end{document}

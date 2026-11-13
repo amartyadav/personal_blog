@@ -7,7 +7,9 @@
     "dev": "nodemon dev-server.js",
     "generate-rss": "node util/generate-rss.js",
     "generate-blog-index": "node util/generate-blog-index.js",
-    "build": "npm run generate-rss && npm run generate-blog-index"
+    "build": "npm run generate-rss && npm run generate-blog-index",
+    "stamp": "node util/stamp-last-updated.js",
+    "cv": "cd cv && latexmk -pdf -interaction=nonstopmode amartya-yadav-cv.tex && latexmk -c amartya-yadav-cv.tex"
   },
   "repository": {
     "type": "git",

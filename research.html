@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Amartya Yadav</title>
+    <meta name="author" content="Amartya Yadav">
+    <meta name="description" content="Research, publications, software, talks and theses by Amartya Yadav, incoming PhD Research Fellow in HPC at the University of Oslo and Simula Research Laboratory.">
+    <style>
+        body {
+            color: rgb(0, 0, 0);
+            background-color: rgb(240, 240, 240);
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            padding: 40px;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        a { color: #000099; text-decoration: none; }
+        a:hover { color: #0066cc; text-decoration: underline; }
+
+        .nav-links { margin: 20px 0; }
+        .nav-links a { margin-right: 20px; }
+        .nav-links a.active { font-weight: bold; }
+
+        h2 { color: rgb(153, 0, 0); margin-top: 30px; }
+        h3 { margin-bottom: 4px; }
+
+        hr { height: 1px; background-color: #ccc; border: none; margin: 20px 0; }
+
+        .intro-note {
+            background-color: #f8f8f8;
+            border-left: 3px solid rgb(153, 0, 0);
+            padding: 10px 16px;
+            font-size: 0.95em;
+        }
+
+        .pub-list { list-style: none; padding: 0; }
+        .pub-list li { margin-bottom: 22px; }
+        .pub-title { font-weight: bold; }
+        .pub-meta { color: #555; font-size: 0.92em; }
+        .pub-kind {
+            display: inline-block;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.75em;
+            background-color: #e8e8e8;
+            color: #444;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-right: 6px;
+            vertical-align: 1px;
+        }
+
+        details { margin-top: 6px; font-size: 0.9em; }
+        summary { cursor: pointer; color: #000099; }
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px 12px;
+            overflow-x: auto;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.85em;
+            line-height: 1.45;
+        }
+
+        .placeholder { color: #666; font-style: italic; }
+
+        @media (max-width: 600px) {
+            body { padding: 20px 16px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html" class="active">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="blogs.html">Blog</a>
+        <a href="updates.html">Updates</a>
+        <a href="now.html">Now</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <hr>
+
+    <h2>Research</h2>
+    <p>My research sits where high-performance computing meets computational physics and numerical
+        mathematics: parallel solvers, CFD kernels, and how they behave on unconventional hardware, from
+        wafer-scale engines to RISC-V boards with posit arithmetic. Curious which machines that involved? See
+        <a href="machines.html">the machines I've worked on</a>.</p>
+
+    <p>
+        <a href="/cv/amartya-yadav-cv.pdf"><strong>CV (PDF)</strong></a> ·
+        <a href="/cv/amartya-yadav-cv.tex">LaTeX source</a>
+    </p>
+
+    <h3>Interests</h3>
+    <ul>
+        <li>Convergence of HPC and AI</li>
+        <li>Numerical methods and solvers: multigrid (AMG), Poisson problems, Gauss–Seidel smoothers</li>
+        <li>Computational fluid dynamics, especially the Lattice Boltzmann Method</li>
+        <li>Wafer-scale and dataflow architectures (Cerebras WSE-3)</li>
+        <li>Number formats and precision: IEEE 754 compared with posit arithmetic</li>
+        <li>Performance engineering: profiling, roofline analysis, memory and cache behaviour</li>
+    </ul>
+
+    <!-- ===================================================== -->
+    <h2>PhD (from 1 December 2026)</h2>
+    <p><strong>PhD Research Fellow in High-Performance Computing</strong><br>
+        Department of Informatics, <a href="https://www.mn.uio.no/ifi/english/">University of Oslo</a>, jointly
+        with <a href="https://www.simula.no">Simula Research Laboratory</a><br>
+        Supervisor: Prof. Xing Cai<br>
+        Theme: the convergence of HPC and AI</p>
+    <p class="placeholder">The PhD starts on 1 December 2026. Details of the project, along with papers, code and
+        talks, will be added here as the work progresses.</p>
+    <!-- TODO: add project title, co-supervisors, and a short abstract once the PhD is under way. -->
+
+    <!-- ===================================================== -->
+    <h2>Publications &amp; Software</h2>
+
+    <h3>Peer-reviewed papers</h3>
+    <p class="placeholder">None yet. My first papers are expected during the PhD and will be listed here.</p>
+    <!-- TODO: add papers here as <li> entries in a .pub-list, newest first, each with a BibTeX block. -->
+
+    <h3>Software &amp; research artefacts</h3>
+    <ul class="pub-list">
+        <li>
+            <span class="pub-kind">software</span>
+            <span class="pub-title">Red-Black Parallel Gauss-Seidel Smoother with DIA Memory Access Pattern</span><br>
+            <span class="pub-meta">OpenFOAM plugin · Zenodo · April 2026</span>
+            <!-- TODO: link the Zenodo record and add its DOI, e.g. <a href="https://doi.org/10.5281/zenodo.XXXXXXX">doi:10.5281/zenodo.XXXXXXX</a> -->
+            <p>An OpenMP-parallel Gauss–Seidel smoother for OpenFOAM that uses red-black ordering for shared-memory
+                thread-level parallelism, built on a diagonal (DIA) memory access pattern.</p>
+            <details>
+                <summary>BibTeX</summary>
+                <!-- TODO: check the author list, then add doi = {...} and url = {...} from Zenodo -->
+<pre>@software{yadav2026redblackgs,
+  author    = {Yadav, Amartya},
+  title     = {Red-Black Parallel Gauss-Seidel Smoother
+               with DIA Memory Access Pattern},
+  year      = {2026},
+  month     = apr,
+  publisher = {Zenodo},
+  note      = {OpenFOAM plugin}
+}</pre>
+            </details>
+        </li>
+        <li>
+            <span class="pub-kind">software</span>
+            <span class="pub-title">Gauss-Seidel Smoother with DIA Memory Access Pattern</span><br>
+            <span class="pub-meta">OpenFOAM plugin · Zenodo · April 2026</span>
+            <!-- TODO: link the Zenodo record and add its DOI -->
+            <p>A Gauss–Seidel smoother for OpenFOAM built on a diagonal (DIA) memory access pattern. This was my first
+                published artefact after my MSc.</p>
+            <details>
+                <summary>BibTeX</summary>
+                <!-- TODO: check the author list, then add doi = {...} and url = {...} from Zenodo -->
+<pre>@software{yadav2026gs,
+  author    = {Yadav, Amartya},
+  title     = {Gauss-Seidel Smoother with DIA Memory Access Pattern},
+  year      = {2026},
+  month     = apr,
+  publisher = {Zenodo},
+  note      = {OpenFOAM plugin}
+}</pre>
+            </details>
+        </li>
+    </ul>
+
+    <h3>Technical reports</h3>
+    <p>During my time at Calligo Technologies (2026), each project came with an internal technical report covering
+        the implementation, profiling results, and numerical comparisons between IEEE 754 and posit arithmetic.
+        These reports cover:</p>
+    <ul>
+        <li>Multi-material thermal analysis of a 2-D aluminium + CFRP domain with HYPRE BoomerAMG, on x86 and the
+            UTTUNGA RISC-V board. At tolerances of 1e-14 to 1e-15 the x86 (IEEE 754) run failed to converge, while
+            the posit run on UTTUNGA converged in about 11–12 iterations.
+            (<a href="posts/post3.html">Blog write-up</a>)</li>
+        <li>An OpenMP red-black Gauss–Seidel smoother in OpenFOAM, profiled across grid resolutions with AMD uProf,
+            Intel VTune, Intel Advisor and LIKWID.</li>
+        <li>A Lattice Boltzmann CFD kernel with a physical validation suite (energy decay, mass conservation,
+            L<sub>∞</sub> norm, zero-velocity test), in serial and OpenMP versions at single and double precision,
+            benchmarked on UTTUNGA against x86.</li>
+    </ul>
+    <p class="placeholder">These reports are internal and not public.</p>
+
+    <!-- ===================================================== -->
+    <h2>Talks &amp; Tutorials</h2>
+    <ul class="pub-list">
+        <li>
+            <span class="pub-kind">tutorial</span>
+            <span class="pub-title">Efficient Halo Exchange for Stencil-Based Scientific Codes on Cerebras Wafer-Scale Engine</span><br>
+            <span class="pub-meta">Supercomputing India 2025 · Bengaluru · November 2025</span>
+            <!-- TODO: link slides / material if published -->
+        </li>
+        <li>
+            <span class="pub-kind">demo</span>
+            <span class="pub-title">Multi-Material Thermal Analysis: Numerical Convergence with HYPRE BoomerAMG and Posits on UTTUNGA</span><br>
+            <span class="pub-meta">Calligo Technologies booth · Investment summit led by Seafund Ventures · June 2026</span>
+        </li>
+    </ul>
+
+    <!-- ===================================================== -->
+    <h2>Theses</h2>
+    <ul class="pub-list">
+        <li>
+            <span class="pub-kind">MSc</span>
+            <span class="pub-title">Lattice-Boltzmann Methods for Computational Fluid Dynamics on Cerebras CS-3</span><br>
+            <span class="pub-meta">MSc in High Performance Computing · EPCC, University of Edinburgh · 2025 ·
+                Supervisor: Dr. Justs Zarins</span>
+            <!-- TODO: confirm the exact dissertation title; link the PDF if you publish it -->
+            <p>An implementation of Taylor–Green vortex decay with the Lattice Boltzmann Method on the Cerebras CS-3,
+                written in CSL. The problem had already been parallelised with OpenMP, MPI and CUDA, but not yet on a
+                wafer-scale engine.</p>
+        </li>
+    </ul>
+
+    <!-- ===================================================== -->
+    <h2>Profiles</h2>
+    <p>
+        Code: <a href="https://codeberg.org/amartya">Codeberg</a> ·
+        <a href="https://github.com/amartyadav">GitHub</a>
+    </p>
+    <p class="placeholder">Google Scholar, ORCID and DBLP profiles will be linked here once they're set up.</p>
+    <!-- TODO: add links, e.g.
+         <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a> ·
+         <a href="https://scholar.google.com/citations?user=XXXX">Google Scholar</a> ·
+         <a href="https://dblp.org/pid/XXX">DBLP</a> -->
+
+    <footer class="site-footer">
+        <p>Contact: amartyadav[at]gmail[dot]com</p>
+    </footer>
+    <script src="/js/footer.js" defer></script>
+</body>
+
+</html>
