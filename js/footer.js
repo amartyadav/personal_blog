@@ -6,7 +6,7 @@
 //
 // SITE_LAST_UPDATED is rewritten automatically on every commit by
 // .githooks/pre-commit → util/stamp-last-updated.js. Don't edit it by hand.
-const SITE_LAST_UPDATED = '2026-11-13';
+const SITE_LAST_UPDATED = '2026-11-14';
 
 (function () {
     const REPO = 'https://github.com/amartyadav/personal_blog';
