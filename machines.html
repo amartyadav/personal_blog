@@ -91,6 +91,49 @@
         travel log. For the research behind it, see <a href="research.html">Research</a>.</p>
 
     <!-- ===================================================== -->
+    <h2>Supercomputers</h2>
+    <div class="machine">
+        <h3>ARCHER2 · EPCC</h3>
+        <dl>
+            <dt>arch</dt>
+            <dd>HPE Cray EX, the UK's national supercomputer. Dual AMD EPYC 7742 nodes (128 cores each) on a
+                Slingshot interconnect</dd>
+            <dt>context</dt>
+            <dd>MSc coursework, EPCC, University of Edinburgh (2024–2025)</dd>
+            <!-- TODO: add a "model" row (e.g. C, MPI, OpenMP) and a "ran" row naming the coursework you ran here -->
+        </dl>
+    </div>
+
+    <div class="machine">
+        <h3>Cirrus · EPCC</h3>
+        <dl>
+            <dt>arch</dt>
+            <dd>UK Tier-2 HPC cluster hosted at EPCC</dd>
+            <!-- TODO: add node specs for the partition you used -->
+            <dt>model</dt>
+            <dd>C, MPI, OpenMP</dd>
+            <dt>context</dt>
+            <dd>MSc coursework, EPCC (2024–2025)</dd>
+            <dt>ran</dt>
+            <dd>An MPI cellular automaton with non-blocking halo swaps, derived datatypes and periodic boundaries. Also
+                an OpenMP adaptive quadrature using tasks, a shared queue and work stealing.</dd>
+        </dl>
+    </div>
+
+    <div class="machine">
+        <h3>PARAM Utkarsh · C-DAC</h3>
+        <dl>
+            <dt>arch</dt>
+            <dd>C-DAC supercomputer in Bengaluru, built under India's National Supercomputing Mission</dd>
+            <!-- TODO: add node specs for the partition you used (CPU / GPU model) -->
+            <dt>context</dt>
+            <dd>HPC Software Engineer, Calligo Technologies (2026)</dd>
+            <!-- TODO: add a "ran" row: what you ran or benchmarked here -->
+        </dl>
+    </div>
+
+    <!-- ===================================================== -->
+    <h2>Accelerators</h2>
     <div class="machine">
         <h3>Cerebras CS-3 · WSE-3</h3>
         <dl>
@@ -108,6 +151,34 @@
         </dl>
     </div>
 
+    <div class="machine">
+        <h3>NVIDIA GPUs · CUDA</h3>
+        <dl>
+            <dt>arch</dt>
+            <dd>NVIDIA GPUs</dd>
+            <!-- TODO: add GPU models and where you ran on them -->
+            <dt>model</dt>
+            <dd>CUDA</dd>
+            <dt>ran</dt>
+            <dd>Scientific computing kernels</dd>
+        </dl>
+    </div>
+
+    <div class="machine">
+        <h3>FPGA · HLS</h3>
+        <dl>
+            <dt>arch</dt>
+            <dd>FPGA programmed through high-level synthesis</dd>
+            <!-- TODO: add the board / device and toolchain (e.g. AMD Vitis HLS) -->
+            <dt>context</dt>
+            <dd>Internal project at Calligo Technologies (June 2026), the company's first FPGA work and mine</dd>
+            <dt>ran</dt>
+            <dd>Porting OpenFOAM hotspot functions to FPGA</dd>
+        </dl>
+    </div>
+
+    <!-- ===================================================== -->
+    <h2>Boards &amp; servers</h2>
     <div class="machine">
         <h3>UTTUNGA · RISC-V + posits</h3>
         <dl>
@@ -143,48 +214,6 @@
         </dl>
     </div>
 
-    <div class="machine">
-        <h3>Cirrus · EPCC</h3>
-        <dl>
-            <dt>arch</dt>
-            <dd>UK Tier-2 HPC cluster hosted at EPCC</dd>
-            <!-- TODO: add node specs for the partition you used -->
-            <dt>model</dt>
-            <dd>C, MPI, OpenMP</dd>
-            <dt>context</dt>
-            <dd>MSc coursework, EPCC (2024–2025)</dd>
-            <dt>ran</dt>
-            <dd>An MPI cellular automaton with non-blocking halo swaps, derived datatypes and periodic boundaries. Also
-                an OpenMP adaptive quadrature using tasks, a shared queue and work stealing.</dd>
-        </dl>
-    </div>
-
-    <div class="machine">
-        <h3>FPGA · HLS</h3>
-        <dl>
-            <dt>arch</dt>
-            <dd>FPGA programmed through high-level synthesis</dd>
-            <!-- TODO: add the board / device and toolchain (e.g. AMD Vitis HLS) -->
-            <dt>context</dt>
-            <dd>Internal project at Calligo Technologies (June 2026), the company's first FPGA work and mine</dd>
-            <dt>ran</dt>
-            <dd>Porting OpenFOAM hotspot functions to FPGA</dd>
-        </dl>
-    </div>
-
-    <div class="machine">
-        <h3>NVIDIA GPUs · CUDA</h3>
-        <dl>
-            <dt>arch</dt>
-            <dd>NVIDIA GPUs</dd>
-            <!-- TODO: add GPU models and where you ran on them -->
-            <dt>model</dt>
-            <dd>CUDA</dd>
-            <dt>ran</dt>
-            <dd>Scientific computing kernels</dd>
-        </dl>
-    </div>
-
     <!-- ===================================================== -->
     <h2>Next</h2>
     <div class="machine upcoming">
@@ -202,6 +231,7 @@
 
     <footer class="site-footer">
         <p>Contact: amartyadav[at]gmail[dot]com</p>
+        <p class="site-links"><a href="/research.html">research</a> · <a href="/machines.html">machines</a> · <a href="/uses.html">uses</a> · <a href="/now.html">now</a> · <a href="/rss.xml">rss</a> · <a href="/humans.txt">humans.txt</a></p>
     </footer>
     <script src="/js/footer.js" defer></script>
 </body>

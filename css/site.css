@@ -221,5 +221,10 @@ html[data-theme="dark"] img[src$="github.svg"] {
 }
 
 html[data-theme="dark"] summary { color: #8ab4f8; }
+html[data-theme="dark"] .chips span { background-color: #1e1e1e; border-color: #333; }
+html[data-theme="dark"] .worklog li { border-bottom-color: #333; }
+html[data-theme="dark"] .worklog .note,
+html[data-theme="dark"] .site-map dd,
+html[data-theme="dark"] .offduty { color: #aaa; }
 html[data-theme="dark"] .bio dd { border-left-color: #ff6b6b; }
 html[data-theme="dark"] .bio dt { color: #999; }

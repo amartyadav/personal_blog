@@ -9,7 +9,8 @@
             src="https://kit.fontawesome.com/4892cb91f5.js"
             crossorigin="anonymous"
         ></script>
-        <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Amartya Yadav</title>
         <meta content="Amartya Yadav" name="author" />
         <meta
@@ -100,10 +101,55 @@
             }
 
             @media (max-width: 640px) {
+                body { padding: 20px 16px; }
                 .header { flex-direction: column-reverse; }
                 .photo { width: 160px; }
                 .bio dt { text-align: left; }
             }
+
+            .lede { font-size: 1.12em; line-height: 1.55; margin: 20px 0 8px; }
+
+            /* Selected work: year in a monospace column, one line of context */
+            .worklog { list-style: none; padding: 0; margin: 0; }
+            .worklog li {
+                display: grid;
+                grid-template-columns: 3.2em 1fr;
+                gap: 12px;
+                padding: 8px 0;
+                border-bottom: 1px dashed #ccc;
+            }
+            .worklog li:last-child { border-bottom: none; }
+            .worklog .yr {
+                font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+                font-size: 0.85em;
+                color: #888;
+                padding-top: 2px;
+            }
+            .worklog .note { display: block; font-size: 0.92em; color: #444; }
+
+            .more { font-size: 0.92em; margin-top: 8px; }
+
+            .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+            .chips span {
+                font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+                font-size: 0.82em;
+                padding: 2px 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background-color: #f8f8f8;
+            }
+
+            /* Site map: monospace page names, one-line descriptions */
+            .site-map {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 4px 16px;
+                margin: 8px 0;
+            }
+            .site-map dt { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+            .site-map dd { margin: 0; color: #555; }
+
+            .offduty { color: #666; font-size: 0.92em; margin-top: 28px; }
 
             /* Language selector styles */
             .language-selector {
@@ -191,84 +237,72 @@
         </div>
         <hr />
 
-        <p data-i18n="intro.p1">
-            Hi! I'm Amartya. From 1 December 2026, I'll be a PhD Research Fellow in High-Performance Computing at the
-            Department of Informatics, University of Oslo, jointly with Simula Research Laboratory, working with Prof. Xing Cai
-            on the convergence of HPC and AI. I completed my MSc in High Performance Computing from EPCC, University of Edinburgh.
-            Before this, I was an HPC Software Engineer at Calligo Technologies in Bengaluru, working at the intersection of
-            high-performance computing and computational physics — implementing, profiling, and comparing parallel solvers,
-            CFD kernels, and numerical methods across conventional x86 architectures and experimental RISC-V hardware with posit arithmetic. 
-            My work there spanned everything from multigrid thermal solvers to Lattice Boltzmann Method kernels, with deep profiling across memory, cache, power, and roofline performance.
-            I also have extensive experience in implementing scientific computing kernels on the Cerebras Wafer-Scale Engine (WSE-3) and GPU programming (CUDA).    
+        <p class="lede">
+            I make numerical solvers and physics codes run fast on unusual hardware, from wafer-scale engines to
+            RISC-V boards with posit arithmetic. From December I'm a PhD Research Fellow at UiO &amp; Simula with
+            Prof. Xing Cai, working on the convergence of HPC and AI.
         </p>
 
-        <p data-i18n="intro.p2">
-            I'm passionate high-performance computing, computational physics and mathematics, open-source software,
-            linguistics, socio-political issues, and the intersection of
-            technology and society. When I'm not coding, you'll find me hiking,
-            reading, or working out.
-        </p>
-
-        <h3 data-i18n="section.currentProjects">Some of my research</h3>
-        <ul>
+        <h2>Selected work</h2>
+        <ul class="worklog">
             <li>
-            <strong>Multi-Material Thermal Analysis using HYPRE BoomerAMG using x86 (IEEE 754) and RISC-V(UTTUNGA with Posits)
-            </strong>
-            <span>As part of my work at Calligo Technologies, I implemented a heat transfer model for a composite 2-D material of 
-            aluminium and carbon-fibre reinforced polymer using the Poisson equation in HYPRE BoomerAMG and visualised the results.
-            This was done for x86 (with IEEE 754 floats) and RISC-V (using Calligo's UTTUNGA board with Posits). The x86 version failed to
-            converge for extremely low error tolerances in the range of 1e-14 to 1e-15, whereas the UTTUNGA version converged in around 11-12 iterations for the same.
-            This can be credited to the tapered precision offered by Posits around the golden range of 1.0. This experiment proved how well suited Uttunga with Posits is for 
-            such high-fidelity scientific computations.
-            </span>
+                <span class="yr">2026</span>
+                <div>
+                    <a href="posts/post3.html"><strong>Posits vs IEEE 754 on UTTUNGA</strong></a>
+                    <span class="note">Multi-material thermal analysis with HYPRE BoomerAMG. Posits converged at 1e-15
+                        in about 11 iterations; x86 floats never did.</span>
+                </div>
             </li>
-
-             <li>
-                <strong data-i18n="project.title"
-                    >Lattice-Boltzmann methods for Computational Fluid Dynamics
-                    on Cerebras CS-3</strong
-                >
+            <li>
+                <span class="yr">2026</span>
+                <div>
+                    <strong>RBDIAGaussSeidel &amp; DIAGaussSeidel</strong>
+                    <span class="note">DIA-format Gauss–Seidel smoothers for OpenFOAM. Zenodo:
+                        <a href="https://doi.org/10.5281/zenodo.19706031">red-black (OpenMP)</a> ·
+                        <a href="https://doi.org/10.5281/zenodo.19706069">serial</a></span>
+                </div>
             </li>
-            <span data-i18n="project.description"
-                >As part of my MSc project under the supervision of Dr. Justs
-                Zarins at EPCC, I worked on implementing the Taylor Green Vortex
-                Decay problem using Lattice-Boltzmann methods on the Cerebras
-                CS3 accelerator. While this problem has been previously
-                implemented in parallel using OpenMP, MPI, and CUDA for Nvidia
-                GPUs, a similar implementation for the Cerebras CS3 is yet to be
-                achieved.
-                Dissertation: <a href="https://hdl.handle.net/1842/44190">Using the Cerebras CS3 Dataflow Accelerator for HPC</a> ·
-                <a href="https://github.com/amartyadav/SCI2025_CerebrasWSE_HaloEx">Supercomputing India 2025 tutorial</a></span
-            >
+            <li>
+                <span class="yr">2025</span>
+                <div>
+                    <a href="https://github.com/amartyadav/SCI2025_CerebrasWSE_HaloEx"><strong>Halo exchange on the Cerebras WSE</strong></a>
+                    <span class="note">Tutorial at Supercomputing India 2025: slides and code.</span>
+                </div>
+            </li>
+            <li>
+                <span class="yr">2025</span>
+                <div>
+                    <a href="https://hdl.handle.net/1842/44190"><strong>Using the Cerebras CS3 Dataflow Accelerator for HPC</strong></a>
+                    <span class="note">MSc dissertation at EPCC: Lattice Boltzmann CFD written in CSL.</span>
+                </div>
+            </li>
         </ul>
+        <p class="more"><a href="research.html">All research, talks &amp; BibTeX →</a></p>
 
-        <!--
-    <h3 data-i18n="section.publishedApps">Published Apps</h3>
-    <ul>
-        <li><span data-i18n="app.panchang">Quick Panchang - Hindu Calendar and Festivals:</span> <a href="https://apps.apple.com/gb/app/quickpanchang-hindu-calendar/id6475807190?mt=12" data-i18n="app.getOnMac">Get it on the Mac App Store</a></li>
-        <li><span data-i18n="app.mandi">Mandi Mitra - Sabzi Mandi Price Calculator:</span> <a href="/openstore.html" data-i18n="app.getOnMobile">Get it on Google Play Store or Apple App Store [click the link on your phone]</a></li>
-    </ul>
-    -->
-
-        <hr />
-
-        <h2>Blog</h2>
-        <p>
-            Everything I write lives on one blog, split into three sections:
+        <h2>Toolbox</h2>
+        <p class="chips">
+            <span>C</span><span>C++</span><span>Rust</span><span>CSL</span><span>MPI</span><span>OpenMP</span><span>CUDA</span><span>SYCL</span><span>HYPRE</span><span>OpenFOAM</span><span>VTune</span><span>uProf</span><span>LIKWID</span>
         </p>
-        <ul>
-            <li><a href="blogs.html#tech"><strong>Tech</strong></a> — in-depth posts on HPC, parallel computing,
-                numerical methods, and accelerator architectures, with code, benchmarks, and implementation notes.</li>
-            <li><a href="blogs.html#life"><strong>Life &amp; Literature</strong></a> — my literature and personal
-                writing: travel, places I've lived, books, and reflections on life outside of work.</li>
-            <li><a href="blogs.html#general"><strong>Society &amp; General</strong></a> — essays on society,
-                privacy, the internet, and other issues I care about.</li>
-        </ul>
-        <p><a href="blogs.html"><strong>Browse the Blog →</strong></a></p>
+        <p class="more">Run on ARCHER2, Cirrus, PARAM Utkarsh, Cerebras CS-3 and UTTUNGA.
+            <a href="machines.html">Machines →</a></p>
 
+        <h2>Around the site</h2>
+        <dl class="site-map">
+            <dt><a href="research.html">research</a></dt><dd>software, talks, thesis, BibTeX</dd>
+            <dt><a href="machines.html">machines</a></dt><dd>supercomputers, accelerators and boards I've used</dd>
+            <dt><a href="blogs.html">blog</a></dt><dd>tech · life &amp; literature · society</dd>
+            <dt><a href="now.html">now</a></dt><dd>what I'm focused on at the moment</dd>
+            <dt><a href="uses.html">uses</a></dt><dd>my everyday tools</dd>
+            <dt><a href="updates.html">updates</a></dt><dd>a log of wins and failures since 2018</dd>
+            <dt><a href="about.html">about</a></dt><dd>the long version</dd>
+        </dl>
+
+        <p class="offduty">Off the clock: Himalayan treks, mechanical watches, languages (six spoken, four
+            scripts) and FOSS.</p>
 
         <footer class="site-footer">
             <p>Contact: amartyadav[at]gmail[dot]com</p>
+            <p class="site-links"><a href="/research.html">research</a> · <a href="/machines.html">machines</a> · <a href="/uses.html">uses</a> · <a href="/now.html">now</a> · <a href="/rss.xml">rss</a> · <a href="/humans.txt">humans.txt</a></p>
         </footer>
         <script src="/js/footer.js" defer></script>
     </body>
