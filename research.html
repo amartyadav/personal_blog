@@ -132,42 +132,49 @@
     <ul class="pub-list">
         <li>
             <span class="pub-kind">software</span>
-            <span class="pub-title">Red-Black Parallel Gauss-Seidel Smoother with DIA Memory Access Pattern</span><br>
-            <span class="pub-meta">OpenFOAM plugin · Zenodo · April 2026</span>
-            <!-- TODO: link the Zenodo record and add its DOI, e.g. <a href="https://doi.org/10.5281/zenodo.XXXXXXX">doi:10.5281/zenodo.XXXXXXX</a> -->
-            <p>An OpenMP-parallel Gauss–Seidel smoother for OpenFOAM that uses red-black ordering for shared-memory
-                thread-level parallelism, built on a diagonal (DIA) memory access pattern.</p>
+            <span class="pub-title">RBDIAGaussSeidel: A Red-Black Parallel DIA-format Gauss-Seidel Smoother Plugin for OpenFOAM</span><br>
+            <span class="pub-meta">Zenodo · 23 April 2026 · MIT licence ·
+                <a href="https://doi.org/10.5281/zenodo.19706031">doi:10.5281/zenodo.19706031</a> ·
+                <a href="https://github.com/amartyadav/RedBlack-DIA-Gauss-Seidel-OpenFOAM-Smoother">code</a></span>
+            <p>A drop-in replacement smoother for OpenFOAM Foundation v13. It runs Gauss–Seidel over matrices stored in
+                diagonal (DIA) sparse format, using red-black ordering to parallelise with OpenMP. On structured
+                hexahedral meshes it improves memory locality and uses less DRAM bandwidth than OpenFOAM's default
+                indirect LDU-format smoother.</p>
             <details>
                 <summary>BibTeX</summary>
-                <!-- TODO: check the author list, then add doi = {...} and url = {...} from Zenodo -->
-<pre>@software{yadav2026redblackgs,
+<pre>@software{yadav2026rbdiagaussseidel,
   author    = {Yadav, Amartya},
-  title     = {Red-Black Parallel Gauss-Seidel Smoother
-               with DIA Memory Access Pattern},
+  title     = {{RBDIAGaussSeidel}: A Red-Black Parallel {DIA}-format
+               {Gauss-Seidel} Smoother Plugin for {OpenFOAM}},
   year      = {2026},
   month     = apr,
   publisher = {Zenodo},
-  note      = {OpenFOAM plugin}
+  version   = {v1-redblack-parallel-gs-smoother-openfoam},
+  doi       = {10.5281/zenodo.19706031},
+  url       = {https://doi.org/10.5281/zenodo.19706031}
 }</pre>
             </details>
         </li>
         <li>
             <span class="pub-kind">software</span>
-            <span class="pub-title">Gauss-Seidel Smoother with DIA Memory Access Pattern</span><br>
-            <span class="pub-meta">OpenFOAM plugin · Zenodo · April 2026</span>
-            <!-- TODO: link the Zenodo record and add its DOI -->
-            <p>A Gauss–Seidel smoother for OpenFOAM built on a diagonal (DIA) memory access pattern. This was my first
-                published artefact after my MSc.</p>
+            <span class="pub-title">DIAGaussSeidel: A DIA-format Gauss-Seidel Smoother Plugin for OpenFOAM</span><br>
+            <span class="pub-meta">Zenodo · 23 April 2026 · MIT licence ·
+                <a href="https://doi.org/10.5281/zenodo.19706069">doi:10.5281/zenodo.19706069</a> ·
+                <a href="https://github.com/amartyadav/DIAGaussSeidel-Smoother-OpenFOAM">code</a></span>
+            <p>The serial version: a drop-in Gauss–Seidel smoother for OpenFOAM Foundation v13 over matrices stored in
+                DIA format, for structured hexahedral meshes. This was my first published artefact after my MSc.</p>
             <details>
                 <summary>BibTeX</summary>
-                <!-- TODO: check the author list, then add doi = {...} and url = {...} from Zenodo -->
-<pre>@software{yadav2026gs,
+<pre>@software{yadav2026diagaussseidel,
   author    = {Yadav, Amartya},
-  title     = {Gauss-Seidel Smoother with DIA Memory Access Pattern},
+  title     = {{DIAGaussSeidel}: A {DIA}-format {Gauss-Seidel}
+               Smoother Plugin for {OpenFOAM}},
   year      = {2026},
   month     = apr,
   publisher = {Zenodo},
-  note      = {OpenFOAM plugin}
+  version   = {V1_0_DIA_OpenFOAM_GS},
+  doi       = {10.5281/zenodo.19706069},
+  url       = {https://doi.org/10.5281/zenodo.19706069}
 }</pre>
             </details>
         </li>
@@ -183,12 +190,13 @@
             the posit run on UTTUNGA converged in about 11–12 iterations.
             (<a href="posts/post3.html">Blog write-up</a>)</li>
         <li>An OpenMP red-black Gauss–Seidel smoother in OpenFOAM, profiled across grid resolutions with AMD uProf,
-            Intel VTune, Intel Advisor and LIKWID.</li>
+            Intel VTune, Intel Advisor and LIKWID. The code is public as
+            <a href="https://doi.org/10.5281/zenodo.19706031">RBDIAGaussSeidel</a>.</li>
         <li>A Lattice Boltzmann CFD kernel with a physical validation suite (energy decay, mass conservation,
             L<sub>∞</sub> norm, zero-velocity test), in serial and OpenMP versions at single and double precision,
             benchmarked on UTTUNGA against x86.</li>
     </ul>
-    <p class="placeholder">These reports are internal and not public.</p>
+    <p class="placeholder">The reports themselves are internal and not public.</p>
 
     <!-- ===================================================== -->
     <h2>Talks &amp; Tutorials</h2>
@@ -196,8 +204,11 @@
         <li>
             <span class="pub-kind">tutorial</span>
             <span class="pub-title">Efficient Halo Exchange for Stencil-Based Scientific Codes on Cerebras Wafer-Scale Engine</span><br>
-            <span class="pub-meta">Supercomputing India 2025 · Bengaluru · November 2025</span>
-            <!-- TODO: link slides / material if published -->
+            <span class="pub-meta">Supercomputing India 2025 · Bengaluru · November 2025 ·
+                <a href="https://github.com/amartyadav/SCI2025_CerebrasWSE_HaloEx">slides &amp; code</a></span>
+            <p>A hands-on tutorial built on the halo exchange from my MSc dissertation. The repository has the slides,
+                the complete reference code, the incomplete code used for teaching, and links to the Cerebras SDK
+                documentation.</p>
         </li>
         <li>
             <span class="pub-kind">demo</span>
@@ -211,27 +222,37 @@
     <ul class="pub-list">
         <li>
             <span class="pub-kind">MSc</span>
-            <span class="pub-title">Lattice-Boltzmann Methods for Computational Fluid Dynamics on Cerebras CS-3</span><br>
+            <span class="pub-title">Using the Cerebras CS3 Dataflow Accelerator for HPC</span><br>
             <span class="pub-meta">MSc in High Performance Computing · EPCC, University of Edinburgh · 2025 ·
-                Supervisor: Dr. Justs Zarins</span>
-            <!-- TODO: confirm the exact dissertation title; link the PDF if you publish it -->
+                Supervisor: Dr. Justs Zarins ·
+                <a href="https://hdl.handle.net/1842/44190">Edinburgh Research Archive</a></span>
             <p>An implementation of Taylor–Green vortex decay with the Lattice Boltzmann Method on the Cerebras CS-3,
                 written in CSL. The problem had already been parallelised with OpenMP, MPI and CUDA, but not yet on a
                 wafer-scale engine.</p>
+            <details>
+                <summary>BibTeX</summary>
+<pre>@mastersthesis{yadav2025cerebras,
+  author = {Yadav, Amartya},
+  title  = {Using the {Cerebras} {CS3} Dataflow Accelerator for {HPC}},
+  school = {EPCC, University of Edinburgh},
+  type   = {{MSc} dissertation},
+  year   = {2025},
+  url    = {https://hdl.handle.net/1842/44190}
+}</pre>
+            </details>
         </li>
     </ul>
 
     <!-- ===================================================== -->
     <h2>Profiles</h2>
     <p>
-        Code: <a href="https://codeberg.org/amartya">Codeberg</a> ·
-        <a href="https://github.com/amartyadav">GitHub</a>
+        Code: <a href="https://codeberg.org/amartya" target="_blank">Codeberg</a> ·
+        <a href="https://github.com/amartyadav" target="_blank">GitHub</a>
     </p>
-    <p class="placeholder">Google Scholar, ORCID and DBLP profiles will be linked here once they're set up.</p>
-    <!-- TODO: add links, e.g.
-         <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a> ·
-         <a href="https://scholar.google.com/citations?user=XXXX">Google Scholar</a> ·
+    <!-- TODO: add links, e.g.·
          <a href="https://dblp.org/pid/XXX">DBLP</a> -->
+         <a href="https://orcid.org/0009-0006-2372-8127" target="_blank">ORCID</a> ·
+         <a href="https://scholar.google.com/citations?user=DltKMK8AAAAJ&hl=en" target="_blank">Google Scholar</a> 
 
     <footer class="site-footer">
         <p>Contact: amartyadav[at]gmail[dot]com</p>

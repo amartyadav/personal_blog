@@ -77,7 +77,8 @@ number formats (IEEE~754 vs.\ posits); performance engineering.
   \item Built a Lattice Boltzmann CFD kernel with a physical validation suite, in serial and OpenMP versions at
         single and double precision, benchmarked on UTTUNGA against x86.
   \item Started the company's first FPGA project, porting OpenFOAM hotspot functions to FPGA with HLS.
-  \item Wrote a technical report for every project. Published two OpenFOAM plugins on Zenodo.
+  \item Wrote a technical report for every project. Published two OpenFOAM smoother plugins
+        (DIAGaussSeidel, RBDIAGaussSeidel) on Zenodo.
 \end{itemize}
 
 \entry{Freelance Software Developer}{2023 -- 2024}
@@ -99,8 +100,8 @@ number formats (IEEE~754 vs.\ posits); performance engineering.
 \entry{MSc High Performance Computing, with Merit}{2024 -- 2025}
       {EPCC, University of Edinburgh}{Edinburgh, UK}
 \begin{itemize}
-  \item Dissertation: Lattice-Boltzmann methods for CFD on the Cerebras CS-3 (Taylor--Green vortex decay in CSL),
-        supervised by Dr.\ Justs Zarins.
+  \item Dissertation: \textit{Using the Cerebras CS3 Dataflow Accelerator for HPC}. Lattice Boltzmann
+        Taylor--Green vortex decay in CSL, supervised by Dr.\ Justs Zarins.
   \item Courses: Advanced Message Passing Programming; Performance Programming; Accelerated Systems;
         Machine Learning at Scale; Parallel Design Patterns; MPI; OpenMP; Numerical Algorithms in HPC;
         Design and Analysis of Parallel Algorithms; HPC Architectures.
@@ -119,16 +120,23 @@ number formats (IEEE~754 vs.\ posits); performance engineering.
 \vspace{4pt}
 \textbf{Software}
 \begin{itemize}
-  \item A.~Yadav. \textit{Red-Black Parallel Gauss-Seidel Smoother with DIA Memory Access Pattern}.
-        OpenFOAM plugin, Zenodo, April 2026. % TODO: add DOI
-  \item A.~Yadav. \textit{Gauss-Seidel Smoother with DIA Memory Access Pattern}.
-        OpenFOAM plugin, Zenodo, April 2026. % TODO: add DOI
+  \item A.~Yadav. \textit{RBDIAGaussSeidel: A Red-Black Parallel DIA-format Gauss-Seidel Smoother Plugin for OpenFOAM}.
+        Zenodo, April 2026. \href{https://doi.org/10.5281/zenodo.19706031}{doi:10.5281/zenodo.19706031}
+  \item A.~Yadav. \textit{DIAGaussSeidel: A DIA-format Gauss-Seidel Smoother Plugin for OpenFOAM}.
+        Zenodo, April 2026. \href{https://doi.org/10.5281/zenodo.19706069}{doi:10.5281/zenodo.19706069}
+\end{itemize}
+
+\textbf{Thesis}
+\begin{itemize}
+  \item A.~Yadav. \textit{Using the Cerebras CS3 Dataflow Accelerator for HPC}. MSc dissertation,
+        EPCC, University of Edinburgh, 2025. \href{https://hdl.handle.net/1842/44190}{hdl:1842/44190}
 \end{itemize}
 
 \textbf{Talks \& tutorials}
 \begin{itemize}
   \item \textit{Efficient Halo Exchange for Stencil-Based Scientific Codes on Cerebras Wafer-Scale Engine}.
         Tutorial, Supercomputing India 2025, Bengaluru, November 2025.
+        \href{https://github.com/amartyadav/SCI2025_CerebrasWSE_HaloEx}{Slides \& code}
   \item \textit{Multi-Material Thermal Analysis with HYPRE BoomerAMG and Posits on UTTUNGA}.
         Live demo, investment summit led by Seafund Ventures, June 2026.
 \end{itemize}

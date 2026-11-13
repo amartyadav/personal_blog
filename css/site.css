@@ -220,5 +220,6 @@ html[data-theme="dark"] img[src$="github.svg"] {
     filter: invert(1) brightness(0.92);
 }
 
+html[data-theme="dark"] summary { color: #8ab4f8; }
 html[data-theme="dark"] .bio dd { border-left-color: #ff6b6b; }
 html[data-theme="dark"] .bio dt { color: #999; }
