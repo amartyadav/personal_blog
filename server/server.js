@@ -8,6 +8,10 @@ const app = express();
 generateRSS();
 generateBlogIndex();
 
+// Old per-section blog pages were merged into blogs.html
+app.get(['/tech-blog.html', '/tech-blog'], (req, res) => res.redirect(301, '/blogs.html#tech'));
+app.get(['/life-blog.html', '/life-blog'], (req, res) => res.redirect(301, '/blogs.html#life'));
+
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname, '..')));
 

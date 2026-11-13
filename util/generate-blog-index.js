@@ -3,7 +3,7 @@ const path = require('path');
 const glob = require('glob');
 
 // Blog sections: each markdown directory maps to a JSON manifest the
-// corresponding *-blog.html listing page fetches at runtime.
+// blogs.html listing page fetches at runtime.
 const sections = [
   { dir: 'posts/tech', out: 'tech-posts.json' },
   { dir: 'posts/life', out: 'life-posts.json' },

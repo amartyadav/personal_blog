@@ -2,169 +2,72 @@
 <html lang="en">
 
 <head>
-
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script data-goatcounter="https://amartya-blog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script src="https://kit.fontawesome.com/4892cb91f5.js" crossorigin="anonymous"></script>
     <link rel="alternate" type="application/rss+xml" title="Amartya Yadav's Blog" href="/rss.xml" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs - Amartya Yadav</title>
+    <title>Blog - Amartya Yadav</title>
     <style>
-        .rss-link {
-            display: inline-flex;
-            align-items: center;
-            padding: 5px 10px;
-            background-color: #f8f8f8;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 10px 0;
-            color: #f26522;
-            /* RSS orange */
-            font-weight: bold;
-            transition: all 0.2s;
-        }
-
-        .rss-link:hover {
-            background-color: #eee;
-            text-decoration: none;
-        }
-
-        .rss-link i {
-            margin-right: 5px;
-        }
-
-
         body {
             color: rgb(0, 0, 0);
             background-color: rgb(240, 240, 240);
             font-family: Arial, sans-serif;
-            margin: 0;
+            margin: 0 auto;
             padding: 40px;
             line-height: 1.6;
             max-width: 800px;
-            margin: 0 auto;
         }
 
-        a {
-            color: #000099;
-            text-decoration: none;
-        }
-        a:hover {
-                    color: #0066cc;
-                    text-decoration: underline;
-                }
+        a { color: #000099; text-decoration: none; }
+        a:hover { color: #0066cc; text-decoration: underline; }
 
-        /*a:visited {
-            color: #990000;
-        }*/
+        h2 { color: rgb(153, 0, 0); }
 
-        .header {
+        .nav-links { margin: 20px 0; }
+        .nav-links a { margin-right: 20px; }
+        .nav-links a.active { font-weight: bold; }
+
+        hr { height: 1px; background-color: #ccc; border: none; margin: 20px 0; }
+
+        /* Section navigation */
+        .section-nav {
             display: flex;
-            justify-content: space-between;
-            align-items: start;
-        }
-
-        .photo {
-            width: 300px;
-            height: auto;
-        }
-
-        h1 {
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            color: rgb(153, 0, 0);
-        }
-
-        .nav-links {
+            flex-wrap: wrap;
+            gap: 8px;
             margin: 20px 0;
         }
 
-        .nav-links a {
-            margin-right: 20px;
-        }
-
-        hr {
-            height: 1px;
-            background-color: #ccc;
-            border: none;
-            margin: 20px 0;
-        }
-
-        /* Language selector styles */
-        .language-selector {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .language-btn {
-            cursor: pointer;
-            padding: 5px 10px;
+        .section-nav a {
+            padding: 6px 14px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            background: none;
-            font-size: 0.9em;
+            background-color: #f8f8f8;
+            color: #333;
         }
 
-        .language-btn.active {
+        .section-nav a:hover {
             background-color: #eee;
+            text-decoration: none;
+        }
+
+        .section-nav a.active {
+            background-color: rgb(153, 0, 0);
+            border-color: rgb(153, 0, 0);
+            color: #fff;
             font-weight: bold;
         }
 
-        /* Blog post styles */
-        .blog-list {
-            margin-top: 30px;
-        }
-
-        .blog-item {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .blog-item:last-child {
-            border-bottom: none;
-        }
-
-        .blog-title {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: rgb(51, 51, 51);
-        }
-
-        .blog-meta {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .blog-excerpt {
-            margin-bottom: 15px;
-        }
-
-        .read-more {
-            display: inline-block;
-            margin-top: 5px;
-            font-weight: bold;
-        }
-
-        .tag {
-            display: inline-block;
-            background-color: #f0f0f0;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            margin-right: 5px;
-            color: #555;
-        }
-
-        /* Search and filter */
-        .filter-container {
-            margin: 20px 0;
+        .toolbar {
             display: flex;
             gap: 10px;
             align-items: center;
             flex-wrap: wrap;
+            margin-bottom: 10px;
         }
 
         .search-box {
@@ -172,178 +75,327 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             width: 250px;
+            max-width: 100%;
         }
 
-        .filter-select {
-            padding: 8px;
-            border: 1px solid #ccc;
+        .rss-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
             border-radius: 4px;
+            color: #f26522;
+            font-weight: bold;
+        }
+
+        .rss-link:hover { background-color: #eee; text-decoration: none; }
+        .rss-link i { margin-right: 5px; }
+
+        /* Sections */
+        .blog-section { margin-top: 30px; }
+        .blog-section[hidden] { display: none; }
+
+        .intro-note {
+            background-color: #f8f8f8;
+            border-left: 3px solid rgb(153, 0, 0);
+            padding: 10px 16px;
+            margin-bottom: 24px;
+            font-size: 0.95em;
+        }
+
+        /* Posts */
+        .blog-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .blog-item:last-child { border-bottom: none; }
+
+        .blog-title {
+            font-size: 1.4em;
+            margin: 0 0 6px;
+        }
+
+        .blog-meta {
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .blog-excerpt { margin-bottom: 10px; }
+        .blog-excerpt p { margin: 0; }
+
+        .tag {
+            display: inline-block;
+            background-color: #e8e8e8;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.78em;
+            margin-right: 4px;
+            color: #444;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        .loading { color: #888; font-style: italic; }
+        .error { color: rgb(153, 0, 0); }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f8f8f8;
+            border: 1px dashed #ccc;
+            border-radius: 6px;
+        }
+
+        .empty-state .emoji { font-size: 2.2em; display: block; margin-bottom: 10px; }
+        .empty-state h3 { margin: 0 0 8px; color: rgb(153, 0, 0); }
+        .empty-state p { margin: 0 auto; max-width: 480px; color: #555; }
+
+        .no-results { color: #666; font-style: italic; }
+
+        @media (max-width: 600px) {
+            body { padding: 20px 16px; }
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <div>
-            <div class="nav-links">
-                <a href="index.html" data-i18n="nav.home">Home</a>
-                <a href="about.html" data-i18n="nav.about">About</a>
-                <a href="projects.html" data-i18n="nav.projects">Projects</a>
-                <a href="blogs.html" class="active" data-i18n="nav.blog">Blog</a>
-                <a href="tech-blog.html">Tech Blog</a>
-                <a href="life-blog.html">Life Blog</a>
-                <a href="updates.html" data-i18n="nav.updates">Updates</a>
-                <a href="contact.html" data-i18n="nav.contact">Contact</a>
-            </div>
-
-        </div>
-
+    <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="projects.html" data-i18n="nav.projects">Projects</a>
+        <a href="blogs.html" class="active" data-i18n="nav.blog">Blog</a>
+        <a href="updates.html" data-i18n="nav.updates">Updates</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
     </div>
     <hr>
 
-    <h2 data-i18n="blog.title">My Blog Posts</h2>
-    <p data-i18n="blog.intro">Here you'll find my thoughts on technology, society, politics, and high-performance
-        computing. I write about things that matter to me and hopefully to you too.</p>
+    <h2>Blog</h2>
+    <p>Everything I write, in one place: technical deep-dives from my work, literature and personal writing,
+        and essays on society, technology, and the issues that matter to me.</p>
 
-    <!-- Search and filter -->
-    <div class="filter-container">
-        <input type="text" class="search-box" id="searchBox" placeholder="Search posts..." data-i18n="blog.search">
-        <select class="filter-select" id="tagFilter" data-i18n="blog.filter">
-            <option value="all">All Categories</option>
-            <option value="privacy">Privacy</option>
-            <option value="tech">Technology</option>
-            <option value="society">Society</option>
-            <option value="society">Internet</option>
-            <option value="society">Social Media</option>
-        </select>
+    <nav class="section-nav" aria-label="Blog sections">
+        <a href="#all" data-section="all">All</a>
+        <a href="#tech" data-section="tech">Tech</a>
+        <a href="#life" data-section="life">Life &amp; Literature</a>
+        <a href="#general" data-section="general">Society &amp; General</a>
+    </nav>
+
+    <div class="toolbar">
+        <input type="text" class="search-box" id="searchBox" placeholder="Search posts…" aria-label="Search posts">
+        <a href="/rss.xml" class="rss-link" title="Subscribe via RSS">
+            <i class="fas fa-rss"></i> Subscribe via RSS
+        </a>
     </div>
 
-    <a href="/rss.xml" class="rss-link" title="Subscribe via RSS">
-        <i class="fas fa-rss"></i> Subscribe via RSS
-    </a>
-
-    <!-- Blog list -->
-    <div class="blog-list" id="blogList">
-        <!-- Blog post 1 -->
-        <div class="blog-item" data-tags="privacy,tech,society">
-            <h3 class="blog-title"><a href="posts/post1.html">"I Don't Have Anything to Hide" — The
-                    Dangerous Myth</a></h3>
-            <div class="blog-meta">March 22, 2025 · 10 min read</div>
-            <div class="blog-excerpt">
-                <p>Apple was recently forced by the UK government to provide access to the encrypted data of Apple
-                    users—only in unencrypted form. Under the Investigatory Powers Act (IPA), firms are compelled to
-                    provide law enforcement agencies with data access. And to make matters worse, Apple cannot make this
-                    demand public (by law)...</p>
-            </div>
-            <div>
-                <span class="tag">Privacy</span>
-                <span class="tag">Technology</span>
-                <span class="tag">Society</span>
-            </div>
-            <a href="posts/post1.html" class="read-more">Read more →</a>
+    <!-- ===================== Tech ===================== -->
+    <section class="blog-section" id="section-tech" data-section="tech">
+        <h2>Tech Blog</h2>
+        <div class="intro-note">
+            Deep-dives into HPC, parallel computing, numerical methods, and the projects I work on.
+            Posts include code, benchmarks, and implementation notes.
         </div>
 
-    </div>
+        <div class="post-list" id="techList">
+            <div class="blog-item">
+                <h3 class="blog-title"><a href="posts/post3.html">High-Fidelity Thermal Analysis: Benchmarking Posit Arithmetic on the UTTUNGA Platform</a></h3>
+                <div class="blog-meta">March 12, 2026 · 12 min read</div>
+                <div class="blog-excerpt">
+                    <p>Numerical simulation in the automotive industry is evolving beyond simple geometries. As we move toward complex multi-material battery enclosures—combining high-conductivity Aluminum plates with insulating Carbon Fiber Reinforced Polymers (CFRP)—the underlying math becomes "stiff." This study benchmarks the UTTUNGA board, a RISC-V platform utilizing Posit arithmetic, against a standard x86 baseline to solve thermal interface problems that legacy hardware cannot handle at extreme precision levels...</p>
+                </div>
+                <div>
+                    <span class="tag">HPC</span>
+                    <span class="tag">Automotive</span>
+                    <span class="tag">Technology</span>
+                    <span class="tag">Uttunga</span>
+                </div>
+                <a href="posts/post3.html" class="read-more">Read more →</a>
+            </div>
+            <!-- Markdown posts from posts/tech/ (tech-posts.json) are appended here -->
+        </div>
+    </section>
 
-    <div class="blog-list" id="blogList">
-        <!-- Blog post 2 -->
-        <div class="blog-item" data-tags="internet,social-media,tech,society">
-            <h3 class="blog-title"><a href="posts/post2.html">"The Nostalgia of the Old Internet and Low Tech – Part 1</a></h3>
-            <div class="blog-meta">November 21, 2025 · 10 min read</div>
-            <div class="blog-excerpt">
-                <p>Often I find myself being overwhelmed by how much the Internet and tech have creeped into my life. The
-                millennials, and even the weird category I fall into (born too late for the advent of the Internet, but
-                early enough with Internet and tech access to have seen the old Internet), share this nostalgia with me. A
-                time when websites were not corporate-designed, extremely polished slops, and blogging was still a thing.
-                People still blog, and you are most likely reading this on my website, on my blog, but it is rare now. How
-                many of your friends own their websites, their place on the net where...</p>
-            </div>
-            <div>
-                <span class="tag">Internet</span>
-                <span class="tag">Technology</span>
-                <span class="tag">Society</span>
-                <span class="tag">Social-Media</span>
-            </div>
-            <a href="posts/post2.html" class="read-more">Read more →</a>
+    <!-- ===================== Life & Literature ===================== -->
+    <section class="blog-section" id="section-life" data-section="life">
+        <h2>Life &amp; Literature</h2>
+        <div class="intro-note">
+            My literature and personal writing — travel, places I've lived, books, poetry and prose, and
+            everyday reflections on life outside of code. Written whenever the mood strikes.
         </div>
 
-	<div class="blog-list" id="blogList">
-        <div class="blog-item" data-tags="hpc,automotive,tech,uttunga">
-            <h3 class="blog-title"><a href="posts/post3.html">High-Fidelity Thermal Analysis: Benchmarking Posit Arithmetic on the UTTUNGA Platform</a></h3>
-            <div class="blog-meta">March 12, 2026 · 12 min read</div>
-            <div class="blog-excerpt">
-                <p>Numerical simulation in the automotive industry is evolving beyond simple geometries. As we move toward complex multi-material battery enclosures—combining high-conductivity Aluminum plates with insulating Carbon Fiber Reinforced Polymers (CFRP)—the underlying math becomes "stiff." This study benchmarks the UTTUNGA board, a RISC-V platform utilizing Posit arithmetic, against a standard x86 baseline to solve thermal interface problems that legacy hardware cannot handle at extreme precision levels...</p>
-            </div>
-            <div>
-                <span class="tag">HPC</span>
-                <span class="tag">Automotive</span>
-                <span class="tag">Technology</span>
-                <span class="tag">Uttunga</span>
-            </div>
-            <a href="posts/post3.html" class="read-more">Read more →</a>
+        <div class="post-list" id="lifeList">
+            <!-- Markdown posts from posts/life/ (life-posts.json) are rendered here -->
         </div>
-    </div>
-    
-    </div>
+    </section>
+
+    <!-- ===================== Society & General ===================== -->
+    <section class="blog-section" id="section-general" data-section="general">
+        <h2>Society &amp; General</h2>
+        <div class="intro-note">
+            Thoughts on society, politics, privacy, the internet, and the wider world — the things that
+            matter to me, and hopefully to you too.
+        </div>
+
+        <div class="post-list" id="generalList">
+            <div class="blog-item">
+                <h3 class="blog-title"><a href="posts/post2.html">The Nostalgia of the Old Internet and Low Tech – Part 1</a></h3>
+                <div class="blog-meta">November 21, 2025 · 10 min read</div>
+                <div class="blog-excerpt">
+                    <p>Often I find myself being overwhelmed by how much the Internet and tech have creeped into my life. The
+                        millennials, and even the weird category I fall into (born too late for the advent of the Internet, but
+                        early enough with Internet and tech access to have seen the old Internet), share this nostalgia with me. A
+                        time when websites were not corporate-designed, extremely polished slops, and blogging was still a thing.
+                        People still blog, and you are most likely reading this on my website, on my blog, but it is rare now. How
+                        many of your friends own their websites, their place on the net where...</p>
+                </div>
+                <div>
+                    <span class="tag">Internet</span>
+                    <span class="tag">Technology</span>
+                    <span class="tag">Society</span>
+                    <span class="tag">Social-Media</span>
+                </div>
+                <a href="posts/post2.html" class="read-more">Read more →</a>
+            </div>
+
+            <div class="blog-item">
+                <h3 class="blog-title"><a href="posts/post1.html">"I Don't Have Anything to Hide" — The Dangerous Myth</a></h3>
+                <div class="blog-meta">March 22, 2025 · 10 min read</div>
+                <div class="blog-excerpt">
+                    <p>Apple was recently forced by the UK government to provide access to the encrypted data of Apple
+                        users—only in unencrypted form. Under the Investigatory Powers Act (IPA), firms are compelled to
+                        provide law enforcement agencies with data access. And to make matters worse, Apple cannot make this
+                        demand public (by law)...</p>
+                </div>
+                <div>
+                    <span class="tag">Privacy</span>
+                    <span class="tag">Technology</span>
+                    <span class="tag">Society</span>
+                </div>
+                <a href="posts/post1.html" class="read-more">Read more →</a>
+            </div>
+        </div>
+    </section>
+
+    <p class="no-results" id="noResults" hidden>No posts match your search.</p>
 
     <hr>
-
     <p>Contact: amartyadav[at]gmail[dot]com</p>
 
-    <!-- JavaScript for search and filter functionality -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const blogItems = document.querySelectorAll('.blog-item');
-            const searchBox = document.getElementById('searchBox');
-            const tagFilter = document.getElementById('tagFilter');
+        const EMPTY_STATES = {
+            tech: `
+                <div class="empty-state">
+                    <span class="emoji">🛠️</span>
+                    <h3>Nothing here… yet.</h3>
+                    <p>I'm currently heads-down in the trenches — profiling kernels, chasing
+                    convergence, and building things worth writing about. Check back soon.</p>
+                </div>`,
+            life: `
+                <div class="empty-state">
+                    <span class="emoji">✍️</span>
+                    <h3>No stories here… for now.</h3>
+                    <p>Life's been keeping me busy, but I've got plenty to write about —
+                    places, people, and everything in between. Stick around.</p>
+                </div>`,
+        };
 
-            // Search and filter function
-            function filterPosts() {
-                const searchTerm = searchBox.value.toLowerCase();
-                const selectedTag = tagFilter.value;
+        function escapeHtml(s) {
+            return String(s ?? '').replace(/[&<>"']/g, c => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            })[c]);
+        }
 
-                blogItems.forEach(item => {
-                    const title = item.querySelector('.blog-title').textContent.toLowerCase();
-                    const excerpt = item.querySelector('.blog-excerpt').textContent.toLowerCase();
-                    const tags = item.getAttribute('data-tags');
+        function renderMarkdownPost(p, viewer) {
+            const href = `${viewer}?post=${encodeURIComponent(p.slug)}`;
+            return `
+                <div class="blog-item">
+                    <h3 class="blog-title"><a href="${href}">${escapeHtml(p.title)}</a></h3>
+                    <div class="blog-meta">${escapeHtml(p.date)} · ${escapeHtml(p.readTime)}</div>
+                    <div class="blog-excerpt"><p>${escapeHtml(p.excerpt)}</p></div>
+                    <div>${(p.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
+                    <a class="read-more" href="${href}">Read more →</a>
+                </div>`;
+        }
 
-                    const matchesSearch = title.includes(searchTerm) || excerpt.includes(searchTerm);
-                    const matchesTag = selectedTag === 'all' || tags.includes(selectedTag);
+        // Append markdown posts listed in a JSON manifest to a section's list.
+        // Shows the section's empty state if, after loading, it has no posts at all.
+        async function loadManifest(section, manifest, viewer) {
+            const list = document.getElementById(`${section}List`);
+            const loading = document.createElement('p');
+            loading.className = 'loading';
+            loading.textContent = 'Loading posts…';
+            list.appendChild(loading);
 
-                    if (matchesSearch && matchesTag) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+            try {
+                const res = await fetch(manifest);
+                if (!res.ok) throw new Error('Failed to load post index');
+                const posts = await res.json();
+                loading.remove();
+                list.insertAdjacentHTML('beforeend', posts.map(p => renderMarkdownPost(p, viewer)).join(''));
+            } catch (e) {
+                loading.className = 'error';
+                loading.textContent = `Could not load posts: ${e.message}`;
+                return;
             }
 
-            // Add event listeners
-            searchBox.addEventListener('input', filterPosts);
-            tagFilter.addEventListener('change', filterPosts);
+            if (!list.querySelector('.blog-item') && EMPTY_STATES[section]) {
+                list.innerHTML = EMPTY_STATES[section];
+            }
+            applySearch();
+        }
 
-            // Language selector functionality
-            const languageButtons = document.querySelectorAll('.language-btn');
+        // ---------- Section navigation ----------
+        const SECTIONS = ['all', 'tech', 'life', 'general'];
 
-            languageButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    // Remove active class from all buttons
-                    languageButtons.forEach(btn => btn.classList.remove('active'));
+        function currentSection() {
+            const hash = window.location.hash.replace('#', '');
+            return SECTIONS.includes(hash) ? hash : 'all';
+        }
 
-                    // Add active class to clicked button
-                    this.classList.add('active');
+        function showSection() {
+            const active = currentSection();
+            document.querySelectorAll('.section-nav a').forEach(a => {
+                a.classList.toggle('active', a.dataset.section === active);
+            });
+            document.querySelectorAll('.blog-section').forEach(s => {
+                s.hidden = active !== 'all' && s.dataset.section !== active;
+            });
+            applySearch();
+        }
 
-                    // Here you would typically call a function to change the language
-                    // For a simple demo, we'll just log it
-                    console.log(`Language changed to: ${this.getAttribute('data-lang')}`);
+        // ---------- Search ----------
+        const searchBox = document.getElementById('searchBox');
+
+        function applySearch() {
+            const term = searchBox.value.trim().toLowerCase();
+            let anyVisible = false;
+
+            document.querySelectorAll('.blog-section').forEach(section => {
+                if (section.hidden) return;
+                section.querySelectorAll('.blog-item').forEach(item => {
+                    const match = !term || item.textContent.toLowerCase().includes(term);
+                    item.style.display = match ? '' : 'none';
+                    if (match) anyVisible = true;
                 });
             });
-        });
-    </script>
 
-    <!-- Add the JavaScript files for translations -->
-    <script src="js/translations.js"></script>
-    <script src="js/i18n.js"></script>
+            document.getElementById('noResults').hidden = !term || anyVisible;
+        }
+
+        searchBox.addEventListener('input', applySearch);
+        window.addEventListener('hashchange', showSection);
+
+        showSection();
+        loadManifest('tech', '/tech-posts.json', 'tech-post.html');
+        loadManifest('life', '/life-posts.json', 'life-post.html');
+    </script>
 </body>
 
 </html>

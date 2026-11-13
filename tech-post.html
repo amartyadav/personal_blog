@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/4892cb91f5.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Blog - Amartya Yadav</title>
+    <title>Tech Blog - Amartya Yadav</title>
 
     <!-- marked: Markdown parser -->
     <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
@@ -175,15 +175,13 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
-        <a href="blogs.html">Blog</a>
-        <a href="tech-blog.html" class="active">Tech Blog</a>
-        <a href="life-blog.html">Life Blog</a>
+        <a href="blogs.html" class="active">Blog</a>
         <a href="updates.html">Updates</a>
         <a href="contact.html">Contact</a>
     </div>
     <hr>
 
-    <a class="back-link" href="tech-blog.html">← Back to Tech Blog</a>
+    <a class="back-link" href="blogs.html#tech">← Back to Tech Blog</a>
 
     <div id="post-content">
         <p class="loading">Loading post…</p>
@@ -211,7 +209,7 @@
             const slug = params.get('post');
 
             if (!slug) {
-                container.innerHTML = '<p class="error">No post specified. <a href="tech-blog.html">Browse posts →</a></p>';
+                container.innerHTML = '<p class="error">No post specified. <a href="blogs.html#tech">Browse posts →</a></p>';
                 return;
             }
 
@@ -245,7 +243,7 @@
                 }
             } catch (e) {
                 container.innerHTML = `<p class="error">Could not load post: ${e.message}</p>
-                    <p><a href="tech-blog.html">← Back to Tech Blog</a></p>`;
+                    <p><a href="blogs.html#tech">← Back to Tech Blog</a></p>`;
             }
         }
 

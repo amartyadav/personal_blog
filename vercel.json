@@ -15,6 +15,8 @@
     { "src": "css/**", "use": "@vercel/static" }
   ],
   "routes": [
+    { "src": "/tech-blog(\\.html)?", "status": 301, "headers": { "Location": "/blogs.html#tech" } },
+    { "src": "/life-blog(\\.html)?", "status": 301, "headers": { "Location": "/blogs.html#life" } },
     { "src": "/rss.xml", "dest": "/rss.xml" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/server/server.js" }
