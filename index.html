@@ -76,6 +76,35 @@
                 margin: 20px 0;
             }
 
+            /* Header facts: small monospace labels on the left, one fact per row */
+            .bio {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 10px 16px;
+                margin: 18px 0 0;
+                line-height: 1.45;
+            }
+
+            .bio dt {
+                font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+                font-size: 0.8em;
+                color: #888;
+                text-align: right;
+                padding-top: 2px;
+            }
+
+            .bio dd {
+                margin: 0;
+                padding-left: 12px;
+                border-left: 2px solid rgb(153, 0, 0);
+            }
+
+            @media (max-width: 640px) {
+                .header { flex-direction: column-reverse; }
+                .photo { width: 160px; }
+                .bio dt { text-align: left; }
+            }
+
             /* Language selector styles */
             .language-selector {
                 display: flex;
@@ -97,34 +126,43 @@
                 font-weight: bold;
             }
         </style>
-        <link rel="stylesheet" href="/css/site.css">
+        <script src="/js/theme.js"></script>
+    <link rel="stylesheet" href="/css/site.css">
 </head>
 
     <body>
         <div class="header h-card">
             <div>
                 <h1 data-i18n="name"><a class="p-name u-url" href="https://amartyadav.com" style="color: inherit;">Amartya Yadav</a></h1>
-                <p>
-                    <span data-i18n="title">PhD Research Fellow (from 1 Dec 2026)</span><br />
-                    <a href="https://www.mn.uio.no/ifi/english/" target="_blank"
-                        >University of Oslo</a
-                    >
-                    &amp;
-                    <a href="https://www.simula.no" target="_blank"
-                        >Simula Research Laboratory</a
-                    ><br />
-                    <span>Previously: HPC Software Engineer,</span>
-                    <a href="https://calligotech.com" target="_blank"
-                        >Calligo Technologies</a
-                    ><br />
-                    <span data-i18n="title">MSc HPC '25</span><br />
-                    <a href="https://www.epcc.ed.ac.uk" target="_blank">
-                        EPCC, University of Edinburgh</a
-                    ><br />
-                    <b>amartyadav[at]gmail[dot]com</b><br />
-                    <a href="/cv/amartya-yadav-cv.pdf">My CV</a> ·
-                    <a href="research.html">Research</a>
-                </p>
+                <dl class="bio">
+                    <dt>now</dt>
+                    <dd>
+                        <span class="p-job-title">PhD Research Fellow</span> (from 1 Dec 2026)<br />
+                        <a class="p-org" href="https://www.mn.uio.no/ifi/english/" target="_blank">University of Oslo</a>
+                        &amp; <a href="https://www.simula.no" target="_blank">Simula Research Laboratory</a>
+                    </dd>
+
+                    <dt>before</dt>
+                    <dd>
+                        HPC Software Engineer,
+                        <a href="https://calligotech.com" target="_blank">Calligo Technologies</a>
+                    </dd>
+
+                    <dt>studied</dt>
+                    <dd>
+                        MSc HPC '25,
+                        <a href="https://www.epcc.ed.ac.uk" target="_blank">EPCC, University of Edinburgh</a>
+                    </dd>
+
+                    <dt>email</dt>
+                    <dd><b>amartyadav[at]gmail[dot]com</b></dd>
+
+                    <dt>links</dt>
+                    <dd>
+                        <a href="/cv/amartya-yadav-cv.pdf">My CV</a> ·
+                        <a href="research.html">Research</a>
+                    </dd>
+                </dl>
 
                 <div class="nav-links">
                     <a href="index.html" data-i18n="nav.home">Home</a>

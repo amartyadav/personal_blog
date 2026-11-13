@@ -8,12 +8,17 @@
     const KATEX = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist';
     const HLJS = 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.10.0';
 
-    function css(href, media) {
+    // themeCss: 'light' | 'dark' marks a stylesheet that /js/theme.js toggles.
+    function css(href, themeCss) {
         const l = document.createElement('link');
         l.rel = 'stylesheet';
         l.href = href;
-        if (media) l.media = media;
         document.head.appendChild(l);
+        if (themeCss) {
+            l.dataset.themeCss = themeCss;
+            const current = window.siteTheme ? window.siteTheme() : 'light';
+            l.disabled = themeCss !== current;
+        }
     }
 
     function js(src) {
@@ -47,8 +52,8 @@
         }
 
         if (root.querySelector('pre code')) {
-            css(`${HLJS}/styles/github.min.css`, '(prefers-color-scheme: light)');
-            css(`${HLJS}/styles/github-dark.min.css`, '(prefers-color-scheme: dark)');
+            css(`${HLJS}/styles/github.min.css`, 'light');
+            css(`${HLJS}/styles/github-dark.min.css`, 'dark');
             js(`${HLJS}/highlight.min.js`)
                 .then(() => window.hljs.highlightAll())
                 .catch(() => {});

@@ -4,10 +4,13 @@
  *
  *  1. One font for the whole site
  *  2. Monospace accents (nav, dates, tags, footer)
- *  3. Dark mode via prefers-color-scheme (no toggle, no JS)
+ *  3. Theme toggle button (injected by /js/theme.js)
+ *  4. Dark mode: applies when <html data-theme="dark">. /js/theme.js sets
+ *     that from the visitor's choice, else their system preference.
  */
 
-:root { color-scheme: light dark; }
+:root { color-scheme: light; }
+html[data-theme="dark"] { color-scheme: dark; }
 
 /* ---------- 1. One font ---------- */
 body { font-family: Arial, Helvetica, sans-serif; }
@@ -45,84 +48,177 @@ code, kbd, samp, pre {
 /* 88x31 button + "link to me" snippet */
 .button-88x31 { image-rendering: pixelated; vertical-align: middle; }
 
-/* ---------- 3. Dark mode ---------- */
-@media (prefers-color-scheme: dark) {
-    /* Blog-post pages define these variables */
-    :root {
-        --primary-color: #e6e6e6;
-        --background-color: #141414;
-        --text-color: #d6d6d6;
-        --quote-bg: #222;
-        --accent-color: #ff6b6b;
-        --quote-border: #ff6b6b;
-    }
-
-    html, body {
-        background-color: #141414 !important;  /* !important beats contact.html's inline style */
-        color: #d6d6d6 !important;
-    }
-
-    a, .nav-links a, a:visited { color: #8ab4f8; }
-    a:hover { color: #aecbfa; }
-
-    h1, h3, #post-content h1, #post-content h3 { color: #e6e6e6; }
-    h2, #post-content h2, .comments-section h3,
-    .empty-state h3, .error { color: #ff7b7b; }
-
-    hr, #post-content hr { background-color: #333; }
-
-    /* Panels and cards */
-    .container,
-    .comments-section,
-    .intro-note,
-    .machine,
-    .empty-state,
-    .rss-link,
-    .section-nav a,
-    #post-content blockquote,
-    .math-block,
-    pre, #post-content pre {
-        background-color: #1e1e1e !important;
-        border-color: #333 !important;
-        color: inherit;
-        box-shadow: none !important;
-    }
-
-    .intro-note, .machine, #post-content blockquote { border-left-color: #ff6b6b !important; }
-    .machine.upcoming { border-left-color: #666 !important; }
-
-    .section-nav a.active {
-        background-color: #ff6b6b !important;
-        border-color: #ff6b6b !important;
-        color: #141414 !important;
-    }
-
-    .tag, .pub-kind, #post-content code { background-color: #2a2a2a; color: #ccc; }
-    #post-content pre code { background: none; }
-
-    input, select, .search-box, .filter-select {
-        background-color: #1e1e1e;
-        color: #d6d6d6;
-        border-color: #444;
-    }
-
-    /* Tables */
-    th, #post-content th { background-color: #262626 !important; }
-    th, td, #post-content th, #post-content td { border-color: #3a3a3a !important; }
-    #post-content tr:nth-child(even) { background-color: #1b1b1b; }
-
-    /* Muted text */
-    .blog-meta, .post-meta, .pub-meta, .now-meta, .placeholder,
-    .figure-caption, .site-footer, .no-results, .loading,
-    .machine dt, footer, #post-content blockquote { color: #999 !important; }
-
-    .project, .blog-item, .post-item, .site-footer,
-    .comments-section h3 { border-color: #333 !important; }
-
-    /* Black monochrome icons (e.g. GitHub logo on the contact page) */
-    img[src$="github.svg"] { filter: invert(1); }
-
-    /* Keep photos and figures from glaring */
-    img:not(.button-88x31) { filter: brightness(0.92); }
-    img[src$="github.svg"] { filter: invert(1) brightness(0.92); }
+/* ---------- 3. Theme toggle ---------- */
+.theme-toggle {
+    font: inherit;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: 0.92em;
+    background: none;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    color: #000099;
+    padding: 1px 8px;
+    cursor: pointer;
+    white-space: nowrap;
 }
+.theme-toggle:hover { background-color: rgba(127, 127, 127, 0.15); }
+.theme-toggle.floating { position: fixed; top: 12px; right: 12px; }
+html[data-theme="dark"] .theme-toggle { color: #8ab4f8; border-color: #444; }
+
+/* ---------- 4. Dark mode ---------- */
+/* Blog-post pages define these variables */
+html[data-theme="dark"] {
+    --primary-color: #e6e6e6;
+    --background-color: #141414;
+    --text-color: #d6d6d6;
+    --quote-bg: #222;
+    --accent-color: #ff6b6b;
+    --quote-border: #ff6b6b;
+}
+
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+    background-color: #141414 !important;  /* !important beats contact.html's inline style */
+    color: #d6d6d6 !important;
+}
+
+html[data-theme="dark"] a,
+html[data-theme="dark"] .nav-links a,
+html[data-theme="dark"] a:visited {
+    color: #8ab4f8;
+}
+
+html[data-theme="dark"] a:hover {
+    color: #aecbfa;
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] #post-content h1,
+html[data-theme="dark"] #post-content h3 {
+    color: #e6e6e6;
+}
+
+html[data-theme="dark"] h2,
+html[data-theme="dark"] #post-content h2,
+html[data-theme="dark"] .comments-section h3,
+html[data-theme="dark"] .empty-state h3,
+html[data-theme="dark"] .error {
+    color: #ff7b7b;
+}
+
+html[data-theme="dark"] hr,
+html[data-theme="dark"] #post-content hr {
+    background-color: #333;
+}
+
+/* Panels and cards */
+html[data-theme="dark"] .container,
+html[data-theme="dark"] .comments-section,
+html[data-theme="dark"] .intro-note,
+html[data-theme="dark"] .machine,
+html[data-theme="dark"] .empty-state,
+html[data-theme="dark"] .rss-link,
+html[data-theme="dark"] .section-nav a,
+html[data-theme="dark"] #post-content blockquote,
+html[data-theme="dark"] .math-block,
+html[data-theme="dark"] pre,
+html[data-theme="dark"] #post-content pre {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+    color: inherit;
+    box-shadow: none !important;
+}
+
+html[data-theme="dark"] .intro-note,
+html[data-theme="dark"] .machine,
+html[data-theme="dark"] #post-content blockquote {
+    border-left-color: #ff6b6b !important;
+}
+
+html[data-theme="dark"] .machine.upcoming {
+    border-left-color: #666 !important;
+}
+
+html[data-theme="dark"] .section-nav a.active {
+    background-color: #ff6b6b !important;
+    border-color: #ff6b6b !important;
+    color: #141414 !important;
+}
+
+html[data-theme="dark"] .tag,
+html[data-theme="dark"] .pub-kind,
+html[data-theme="dark"] #post-content code {
+    background-color: #2a2a2a; color: #ccc;
+}
+
+html[data-theme="dark"] #post-content pre code {
+    background: none;
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] .search-box,
+html[data-theme="dark"] .filter-select {
+    background-color: #1e1e1e;
+    color: #d6d6d6;
+    border-color: #444;
+}
+
+/* Tables */
+html[data-theme="dark"] th,
+html[data-theme="dark"] #post-content th {
+    background-color: #262626 !important;
+}
+
+html[data-theme="dark"] th,
+html[data-theme="dark"] td,
+html[data-theme="dark"] #post-content th,
+html[data-theme="dark"] #post-content td {
+    border-color: #3a3a3a !important;
+}
+
+html[data-theme="dark"] #post-content tr:nth-child(even) {
+    background-color: #1b1b1b;
+}
+
+/* Muted text */
+html[data-theme="dark"] .blog-meta,
+html[data-theme="dark"] .post-meta,
+html[data-theme="dark"] .pub-meta,
+html[data-theme="dark"] .now-meta,
+html[data-theme="dark"] .placeholder,
+html[data-theme="dark"] .figure-caption,
+html[data-theme="dark"] .site-footer,
+html[data-theme="dark"] .no-results,
+html[data-theme="dark"] .loading,
+html[data-theme="dark"] .machine dt,
+html[data-theme="dark"] footer,
+html[data-theme="dark"] #post-content blockquote {
+    color: #999 !important;
+}
+
+html[data-theme="dark"] .project,
+html[data-theme="dark"] .blog-item,
+html[data-theme="dark"] .post-item,
+html[data-theme="dark"] .site-footer,
+html[data-theme="dark"] .comments-section h3 {
+    border-color: #333 !important;
+}
+
+/* Black monochrome icons (e.g. GitHub logo on the contact page) */
+html[data-theme="dark"] img[src$="github.svg"] {
+    filter: invert(1);
+}
+
+/* Keep photos and figures from glaring */
+html[data-theme="dark"] img:not(.button-88x31) {
+    filter: brightness(0.92);
+}
+
+html[data-theme="dark"] img[src$="github.svg"] {
+    filter: invert(1) brightness(0.92);
+}
+
+html[data-theme="dark"] .bio dd { border-left-color: #ff6b6b; }
+html[data-theme="dark"] .bio dt { color: #999; }
